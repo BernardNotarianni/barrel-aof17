@@ -1,0 +1,14 @@
+{
+  "author": "Bernard Notarianni",
+  "name": "barre-db-aof17",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BernardNotarianni/barrel-aof17"
+  },
+  "dependencies": {
+    "eventsource": "^0.2.1"
+  },
+  "devDependencies": {},
+  "optionalDependencies": {}
+}

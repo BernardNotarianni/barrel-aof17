@@ -1,2 +1,4 @@
 # barrel-aof17
-Barrel demo for aof17
+
+Demonstration de [barrel-db](https://barrel-db.org/) pour Agile Open 2017.
+
