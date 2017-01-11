@@ -1,0 +1,6 @@
+site_name: Barrel-DB pour aof17
+theme_dir: cinder
+pages:
+    - Home: index.md
+    - Barrel:
+        - 'Concepts': barrel/concepts.md

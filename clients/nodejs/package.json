@@ -7,7 +7,8 @@
     "url": "https://github.com/BernardNotarianni/barrel-aof17"
   },
   "dependencies": {
-    "eventsource": "^0.2.1"
+    "eventsource": "^0.2.1",
+    "request": "^2.79.0"
   },
   "devDependencies": {},
   "optionalDependencies": {}

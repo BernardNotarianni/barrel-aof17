@@ -1,0 +1,24 @@
+{
+    "docs": [
+        {
+            "location": "/", 
+            "text": "Le serveur Barrel-DB\n\n\nCe serveur est \u00e0 votre disposition pour jouer avec Barrel-DB.\n\n\nPour commencer, je vous recommande de prendre connaissance du concept de barrel-db.", 
+            "title": "Home"
+        }, 
+        {
+            "location": "/#le-serveur-barrel-db", 
+            "text": "Ce serveur est \u00e0 votre disposition pour jouer avec Barrel-DB.  Pour commencer, je vous recommande de prendre connaissance du concept de barrel-db.", 
+            "title": "Le serveur Barrel-DB"
+        }, 
+        {
+            "location": "/about/", 
+            "text": "Hello", 
+            "title": "About"
+        }, 
+        {
+            "location": "/about/#hello", 
+            "text": "", 
+            "title": "Hello"
+        }
+    ]
+}
