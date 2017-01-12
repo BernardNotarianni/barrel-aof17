@@ -1,0 +1,2 @@
+requests==2.12.4
+sseclient==0.0.14

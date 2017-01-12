@@ -4,3 +4,9 @@ pages:
     - Home: index.md
     - Barrel:
         - 'Concepts': barrel/concepts.md
+        - 'Patterns': barrel/patterns.md
+        - 'Python': barrel/python.md
+        - 'Javascript': barrel/javascript.md
+        - 'Ruby': barrel/ruby.md
+        - 'Admin': barrel/admin.md
+    - A propos: apropos.md
