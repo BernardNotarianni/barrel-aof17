@@ -1,19 +1,20 @@
 #!/usr/bin/env python
 
-import requests
-import sseclient
 import json
-
+from barrel import Store
 from threading import Thread
 
-url = 'http://localhost:8080/source/chat'
+store_url = 'http://localhost:8080/source'
+docid = 'chat'
+
+store = Store(store_url)
 
 
 def read_doc():
-    r = requests.get(url)
-    if r.status_code == 404:
+    doc = store.get(docid)
+    if doc is None:
         return {'id': 'chat', 'message': ''}
-    return r.json()
+    return doc
 
 
 class Sender(Thread):
@@ -24,13 +25,11 @@ class Sender(Thread):
         Thread.__init__(self)
 
     def run(self):
-        headers = {'Content-Type': 'application/json'}
         while True:
             message = raw_input('Your message:')
             doc = read_doc()
             doc['message'] = message
-            headers = {'Content-Type': 'application/json'}
-            requests.put(url, headers=headers, data=json.dumps(doc))
+            store.put(doc)
 
 
 class Receiver(Thread):
@@ -41,12 +40,8 @@ class Receiver(Thread):
         Thread.__init__(self)
 
     def run(self):
-        url = 'http://localhost:8080/source/_changes?feed=eventsource'
-        response = requests.get(url, stream=True)
-        client = sseclient.SSEClient(response)
 
-        for event in client.events():
-            doc = read_doc()
+        for doc in store.changes(docid):
             print(doc['message'])
 
 

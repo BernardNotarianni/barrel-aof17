@@ -1,27 +1,26 @@
 #!/usr/bin/env python
 
-import requests
-import json
+from barrel import Store
 
-store = 'http://localhost:8080/source'
+store = Store('http://localhost:8080/source')
 
-print "post a document"
-
+# Post a document without an id
 doc = {'name': 'tom'}
-headers = {'Content-Type': 'application/json'}
-r = requests.post(store, headers=headers, data=json.dumps(doc))
-print r.status_code
-docid = r.json()['id']
-revid = r.json()['rev']
+r = store.post(doc)
 
+# Get it back
+docid = r['id']
+print store.get(docid)
 
-print "get the document"
+# Put a document with given id
+dog = {'id': 'dog', 'name': 'dingo'}
+store.put(dog)
 
-r = requests.get(store + '/' + docid)
-print r.status_code
+dog = store.get('dog')
 
+print(dog)
 
-print "delete the document"
+# Delete the document
+store.delete('dog', dog['_rev'])
 
-r = requests.delete(store + '/' + docid + '?rev=' + revid)
-print r.status_code
+print(store.get('dog'))
