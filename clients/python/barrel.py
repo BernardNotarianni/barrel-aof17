@@ -4,14 +4,14 @@ import json
 import sseclient
 
 
-class Store:
+class Database:
 
     def __init__(self, url):
-        """Open the store at the given url."""
+        """Open the database at the given url."""
         self.url = url
         r = requests.get(url)
         if r.status_code != 200:
-            raise Exception('Barrel-db store not available at ' + url)
+            raise Exception('Barrel-db database not available at ' + url)
 
     def get(self, docid):
         r = requests.get(self.url + '/' + docid)
@@ -36,8 +36,20 @@ class Store:
         r = requests.delete(url)
         return r.json()
 
+    def list(self):
+        url = self.url + '/_all_docs'
+        r = requests.get(url)
+        if r.status_code != 200:
+            return None
+        j = r.json()
+        result = []
+        for ref in j['rows']:
+            docid = ref['id']
+            result.append(docid)
+        return result
+
     def changes(self, regex=None):
-        """A stream of document modified on the store.
+        """A stream of document modified on the database.
 
         The regex parameter can be used to provide a filter on documents id.
         Examples:

@@ -1,26 +1,26 @@
 #!/usr/bin/env python
 
-from barrel import Store
+from barrel import Database
 
-store = Store('http://localhost:8080/source')
+database = Database('http://localhost:8080/source')
 
 # Post a document without an id
 doc = {'name': 'tom'}
-r = store.post(doc)
+r = database.post(doc)
 
 # Get it back
 docid = r['id']
-print store.get(docid)
+print database.get(docid)
 
 # Put a document with given id
 dog = {'id': 'dog', 'name': 'dingo'}
-store.put(dog)
+database.put(dog)
 
-dog = store.get('dog')
+dog = database.get('dog')
 
 print(dog)
 
 # Delete the document
-store.delete('dog', dog['_rev'])
+database.delete('dog', dog['_rev'])
 
-print(store.get('dog'))
+print(database.get('dog'))

@@ -1,16 +1,16 @@
 #!/usr/bin/env python
 
-from barrel import Store
+from barrel import Database
 from threading import Thread
 
-store_url = 'http://localhost:8080/source'
+database_url = 'http://localhost:8080/source'
 docid = 'chat'
 
-store = Store(store_url)
+database = Database(database_url)
 
 
 def read_doc():
-    doc = store.get(docid)
+    doc = database.get(docid)
     if doc is None:
         return {'id': 'chat', 'message': ''}
     return doc
@@ -28,7 +28,7 @@ class Sender(Thread):
             message = raw_input('Your message:')
             doc = read_doc()
             doc['message'] = message
-            store.put(doc)
+            database.put(doc)
 
 
 class Receiver(Thread):
@@ -40,7 +40,7 @@ class Receiver(Thread):
 
     def run(self):
 
-        for doc in store.changes(docid):
+        for doc in database.changes(docid):
             print(doc['message'])
 
 
