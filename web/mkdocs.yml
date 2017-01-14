@@ -6,6 +6,7 @@ pages:
         - 'Concepts': barrel/concepts.md
         - 'Patterns': barrel/patterns.md
         - 'Python': barrel/python.md
+        - 'Elixir': barrel/elixir.md
         - 'Javascript': barrel/javascript.md
         - 'Ruby': barrel/ruby.md
         - 'Admin': barrel/admin.md
