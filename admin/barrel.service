@@ -1,0 +1,8 @@
+[Unit]
+Description=barrel http
+
+[Service]
+WorkingDirectory=/home/bernard/barrel/platform/_build/prod/rel/barrel
+ExecStart=/home/bernard/barrel/platform/_build/prod/rel/barrel/bin/barrel_http start
+ExecStop=/home/bernard/barrel/platform/_build/prod/rel/barrel/bin/barrel_http stop
+Restart=always

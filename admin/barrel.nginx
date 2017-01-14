@@ -41,6 +41,12 @@ server {
 
 	server_name _;
 
+	location /downloads { 
+		alias /home/bernard/downloads/; 
+		index index.html; 
+		autoindex on;
+	}
+
 	location / {
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
