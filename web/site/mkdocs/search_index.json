@@ -2,23 +2,118 @@
     "docs": [
         {
             "location": "/", 
-            "text": "Le serveur Barrel-DB\n\n\nCe serveur est \u00e0 votre disposition pour jouer avec Barrel-DB.\n\n\nPour commencer, je vous recommande de prendre connaissance du concept de barrel-db.", 
+            "text": "Bienvenue sur Barrel-DB!\n\n\nCe serveur est \u00e0 votre disposition pour jouer avec Barrel-DB.\n\n\nPour commencer, je vous recommande de prendre connaissance des \nconcepts\n de barrel-db.\n\n\n\n\nLa page swagger pour acceder directement \u00e0 l'API REST: \n/api-docs/index.html", 
             "title": "Home"
         }, 
         {
-            "location": "/#le-serveur-barrel-db", 
-            "text": "Ce serveur est \u00e0 votre disposition pour jouer avec Barrel-DB.  Pour commencer, je vous recommande de prendre connaissance du concept de barrel-db.", 
-            "title": "Le serveur Barrel-DB"
+            "location": "/#bienvenue-sur-barrel-db", 
+            "text": "Ce serveur est \u00e0 votre disposition pour jouer avec Barrel-DB.  Pour commencer, je vous recommande de prendre connaissance des  concepts  de barrel-db.   La page swagger pour acceder directement \u00e0 l'API REST:  /api-docs/index.html", 
+            "title": "Bienvenue sur Barrel-DB!"
         }, 
         {
-            "location": "/about/", 
-            "text": "Hello", 
-            "title": "About"
+            "location": "/barrel/concepts/", 
+            "text": "Concepts de Barrel-DB\n\n\nBase de donn\u00e9es orient\u00e9es documents\n\n\nBarrel-DB est un base de donn\u00e9es orient\u00e9e documents. Vous stockez et retrouvez des\ndocuments json \u00e0 l'aide d'une API REST. Vous disposez des methodes POST, PUT et\nDELETE pour manipuler les documents.\n\n\nLes urls des documents prennent la forme:\n\n\nGET /\nstore\n/\ndocid\n\n\n\n\nPar exemple:\n\n\nGET /source/cat\n\n\n\nPour cr\u00e9er un nouveau documents, nous pouvons renseigner le champ \nid\n avec l'id du\ndocument:\n\n\nPOST /source\n{\n  'id': 'cat',\n  'name': 'Tom'\n}\n\n\n\n\nSi nous ne donnons pas d'\nid\n au document, barrel calculera un identifiant\nunique (de type GUID) que l'on peut retrouver dans le body du r\u00e9sultat de la requete HTTP.\n\n\nPOST /source\n{\n  \nname\n: \nTom\n\n}\n\nBody de la requete au retour:\n{\n  \nid\n: \nb0bd800d-58e2-4279-a5fe-c8e21dbe3040\n,\n  \nok\n: true,\n  \nrev\n: \n1-4ce4351b36db87b1b455421d9e0be43b\n\n}\n\n\n\n\nGestion des conflits: utiliser les r\u00e9visions\n\n\nBarrel utilise un mecanisme de mises \u00e0 jour concurrentes des documents de type \"optimiste\".\nIl n'y a pas de syst\u00e8me de transaction ou de \"lock\".\n\n\nPour v\u00e9rifier que personne n'a pas modifier votre document entre le moment o\u00f9 vous l'avez lu\net celui ou l'\u00e9criture se d\u00e9roule, vous devez utiliser le champs \nrev\n automatiquement\ng\u00e9n\u00e9r\u00e9 \u00e0 chaque cr\u00e9ation ou mise \u00e0 jour d'un document.\n\n\nCe champ est constitu\u00e9 d'un num\u00e9ro de sequence incr\u00e9ment\u00e9 \u00e0 chaque mise \u00e0 jour et d'un MD5\ncalcul\u00e9 \u00e0 partir du contenu du document.\n\n\nExemples:\n\n\n1-4ce4351b36db87b1b455421d9e0be43b\n2-7dce3773ba098f2c09b24697af544e63\n3-dce8a2ab14c7e40b60c6550e8af8d0a5\n\n\n\n\nLors d'une mise \u00e0 jour avec \nPUT\n ou d'une suppression avec \nDELETE\n vous devez indiquer\nla derni\u00e8re revision du document que vous voulez mettre \u00e0 jour. Si lors de l'op\u00e9ration\nBarrel se rend compte que la r\u00e9vision ne correspond pas, c'est probablement que quelqu'un d'autre\na mise \u00e0 jour le document entre temps. Il vous retourne alors un code erreur 409 \"Conflict\"\n\n\nVous pouvez alors essayer de relire le document afin\nde retrouver la deni\u00e8re r\u00e9vision et r\u00e9assyer jusqu'\u00e0 ce que cela passe.\n\n\nPour mettre \u00e0 jour un document:\n1 - Lire le document\n2 - Modifier le document\n3 - Faire un PUT pour mettre \u00e0 jour le document\n4 - Si vous avez un code erreur 409, reprendre \u00e0 l'\u00e9pate 1\n\n\n\n\nEcouter les \u00e9venements de mises \u00e0 jour", 
+            "title": "Concepts"
         }, 
         {
-            "location": "/about/#hello", 
+            "location": "/barrel/concepts/#concepts-de-barrel-db", 
             "text": "", 
-            "title": "Hello"
+            "title": "Concepts de Barrel-DB"
+        }, 
+        {
+            "location": "/barrel/concepts/#base-de-donnees-orientees-documents", 
+            "text": "Barrel-DB est un base de donn\u00e9es orient\u00e9e documents. Vous stockez et retrouvez des\ndocuments json \u00e0 l'aide d'une API REST. Vous disposez des methodes POST, PUT et\nDELETE pour manipuler les documents.  Les urls des documents prennent la forme:  GET / store / docid   Par exemple:  GET /source/cat  Pour cr\u00e9er un nouveau documents, nous pouvons renseigner le champ  id  avec l'id du\ndocument:  POST /source\n{\n  'id': 'cat',\n  'name': 'Tom'\n}  Si nous ne donnons pas d' id  au document, barrel calculera un identifiant\nunique (de type GUID) que l'on peut retrouver dans le body du r\u00e9sultat de la requete HTTP.  POST /source\n{\n   name :  Tom \n}\n\nBody de la requete au retour:\n{\n   id :  b0bd800d-58e2-4279-a5fe-c8e21dbe3040 ,\n   ok : true,\n   rev :  1-4ce4351b36db87b1b455421d9e0be43b \n}", 
+            "title": "Base de donn\u00e9es orient\u00e9es documents"
+        }, 
+        {
+            "location": "/barrel/concepts/#gestion-des-conflits-utiliser-les-revisions", 
+            "text": "Barrel utilise un mecanisme de mises \u00e0 jour concurrentes des documents de type \"optimiste\".\nIl n'y a pas de syst\u00e8me de transaction ou de \"lock\".  Pour v\u00e9rifier que personne n'a pas modifier votre document entre le moment o\u00f9 vous l'avez lu\net celui ou l'\u00e9criture se d\u00e9roule, vous devez utiliser le champs  rev  automatiquement\ng\u00e9n\u00e9r\u00e9 \u00e0 chaque cr\u00e9ation ou mise \u00e0 jour d'un document.  Ce champ est constitu\u00e9 d'un num\u00e9ro de sequence incr\u00e9ment\u00e9 \u00e0 chaque mise \u00e0 jour et d'un MD5\ncalcul\u00e9 \u00e0 partir du contenu du document.  Exemples:  1-4ce4351b36db87b1b455421d9e0be43b\n2-7dce3773ba098f2c09b24697af544e63\n3-dce8a2ab14c7e40b60c6550e8af8d0a5  Lors d'une mise \u00e0 jour avec  PUT  ou d'une suppression avec  DELETE  vous devez indiquer\nla derni\u00e8re revision du document que vous voulez mettre \u00e0 jour. Si lors de l'op\u00e9ration\nBarrel se rend compte que la r\u00e9vision ne correspond pas, c'est probablement que quelqu'un d'autre\na mise \u00e0 jour le document entre temps. Il vous retourne alors un code erreur 409 \"Conflict\"  Vous pouvez alors essayer de relire le document afin\nde retrouver la deni\u00e8re r\u00e9vision et r\u00e9assyer jusqu'\u00e0 ce que cela passe.  Pour mettre \u00e0 jour un document:\n1 - Lire le document\n2 - Modifier le document\n3 - Faire un PUT pour mettre \u00e0 jour le document\n4 - Si vous avez un code erreur 409, reprendre \u00e0 l'\u00e9pate 1", 
+            "title": "Gestion des conflits: utiliser les r\u00e9visions"
+        }, 
+        {
+            "location": "/barrel/concepts/#ecouter-les-evenements-de-mises-a-jour", 
+            "text": "", 
+            "title": "Ecouter les \u00e9venements de mises \u00e0 jour"
+        }, 
+        {
+            "location": "/barrel/patterns/", 
+            "text": "Mod\u00e8les de programmation avec Barrel", 
+            "title": "Patterns"
+        }, 
+        {
+            "location": "/barrel/patterns/#modeles-de-programmation-avec-barrel", 
+            "text": "", 
+            "title": "Mod\u00e8les de programmation avec Barrel"
+        }, 
+        {
+            "location": "/barrel/python/", 
+            "text": "Exemples Python\n\n\nLire un document\n\n\nLire la derni\u00e8re version d'un document:\n\n\nimport requests\n\nr = requests.get('http://localhost:8080/store/docid')\nprint r.status_code\n\n\n\n\nCr\u00e9er un document\n\n\nCr\u00e9er un document et laisser le serveur assigner un id:\n\n\nCr\u00e9er un document ayant un id donn\u00e9\n\n\nMettre \u00e0 jour un document\n\n\nEcouter les \u00e9venements de mises \u00e0 jour", 
+            "title": "Python"
+        }, 
+        {
+            "location": "/barrel/python/#exemples-python", 
+            "text": "", 
+            "title": "Exemples Python"
+        }, 
+        {
+            "location": "/barrel/python/#lire-un-document", 
+            "text": "Lire la derni\u00e8re version d'un document:  import requests\n\nr = requests.get('http://localhost:8080/store/docid')\nprint r.status_code", 
+            "title": "Lire un document"
+        }, 
+        {
+            "location": "/barrel/python/#creer-un-document", 
+            "text": "Cr\u00e9er un document et laisser le serveur assigner un id:  Cr\u00e9er un document ayant un id donn\u00e9", 
+            "title": "Cr\u00e9er un document"
+        }, 
+        {
+            "location": "/barrel/python/#mettre-a-jour-un-document", 
+            "text": "", 
+            "title": "Mettre \u00e0 jour un document"
+        }, 
+        {
+            "location": "/barrel/python/#ecouter-les-evenements-de-mises-a-jour", 
+            "text": "", 
+            "title": "Ecouter les \u00e9venements de mises \u00e0 jour"
+        }, 
+        {
+            "location": "/barrel/elixir/", 
+            "text": "Exemples Elixir", 
+            "title": "Elixir"
+        }, 
+        {
+            "location": "/barrel/elixir/#exemples-elixir", 
+            "text": "", 
+            "title": "Exemples Elixir"
+        }, 
+        {
+            "location": "/barrel/javascript/", 
+            "text": "", 
+            "title": "Javascript"
+        }, 
+        {
+            "location": "/barrel/ruby/", 
+            "text": "", 
+            "title": "Ruby"
+        }, 
+        {
+            "location": "/barrel/admin/", 
+            "text": "Administration de Barrel\n\n\nCette page pr\u00e9sente quelques commandes de base pour administr\u00e9e\nla base de donn\u00e9es en cas de probl\u00e8mes.\n\n\nCes commandes n\u00e9cessite un acc\u00e8s SSH au serveur. Demandez \u00e0 Bernard\nqu'il vous communique ces acc\u00e8s si vous pensez que vous en avez besoin.", 
+            "title": "Admin"
+        }, 
+        {
+            "location": "/barrel/admin/#administration-de-barrel", 
+            "text": "Cette page pr\u00e9sente quelques commandes de base pour administr\u00e9e\nla base de donn\u00e9es en cas de probl\u00e8mes.  Ces commandes n\u00e9cessite un acc\u00e8s SSH au serveur. Demandez \u00e0 Bernard\nqu'il vous communique ces acc\u00e8s si vous pensez que vous en avez besoin.", 
+            "title": "Administration de Barrel"
+        }, 
+        {
+            "location": "/apropos/", 
+            "text": "A propos de ce serveur\n\n\nCe serveur est mis \u00e0 votre disposition par Bernard Notarianni.\n\n\n\n\nIl vous est mis \u00e0 disposition pendant la dur\u00e9e de l'Agile Open pour les\nusages qui vous en paraitront pertinents.\n\n\nEn cas de question, contactez Bernard de vive voix, ou par SMS.", 
+            "title": "A propos"
+        }, 
+        {
+            "location": "/apropos/#a-propos-de-ce-serveur", 
+            "text": "Ce serveur est mis \u00e0 votre disposition par Bernard Notarianni.   Il vous est mis \u00e0 disposition pendant la dur\u00e9e de l'Agile Open pour les\nusages qui vous en paraitront pertinents.  En cas de question, contactez Bernard de vive voix, ou par SMS.", 
+            "title": "A propos de ce serveur"
         }
     ]
 }

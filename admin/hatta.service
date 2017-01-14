@@ -1,0 +1,7 @@
+[Unit]
+Description=hatta wiki
+
+[Service]
+WorkingDirectory=/home/bernard/hatta
+ExecStart=/usr/bin/python -m hatta -p 8001
+Restart=always
