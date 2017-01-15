@@ -1,8 +1,18 @@
 [Unit]
 Description=barrel http
+After=network.target
 
 [Service]
+User=bernard
+TimeoutStartSec=3600
+NotifyAccess=all
+RemainAfterExit=yes
+Restart=always
+Environment=HOME=/home/bernard/barrel/platform/_build/prod/rel/barrel
 WorkingDirectory=/home/bernard/barrel/platform/_build/prod/rel/barrel
 ExecStart=/home/bernard/barrel/platform/_build/prod/rel/barrel/bin/barrel_http start
 ExecStop=/home/bernard/barrel/platform/_build/prod/rel/barrel/bin/barrel_http stop
-Restart=always
+
+[Install]
+WantedBy=default.target
+
