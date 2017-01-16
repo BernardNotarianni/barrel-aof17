@@ -70,7 +70,7 @@ Barrex.Database.delete(doc, db)
 
 ## Ecouter les évenements de mises à jour
 
-La méthode `changes(db)` retourne un [stream](https://hexdocs.pm/elixir/Stream)
+La méthode `changes(db)` retourne un [stream](https://hexdocs.pm/elixir/Stream.html)
 des documents qui ont été modifiés.
 
 ```elixir
