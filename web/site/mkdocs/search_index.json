@@ -1,218 +1,218 @@
 {
     "docs": [
         {
-            "location": "/",
-            "text": "Bienvenue sur Barrel-DB!\n\n\nCe serveur est \u00e0 votre disposition pour jouer avec Barrel-DB.\n\n\nVous pouvez utiliser Barrel en utilisant une des 3 API suivantes:\n\n\n\n\nUne API REST standard\n\n\nUne librairie Python\n\n\nUne librairie Elixir\n\n\n\n\nCes API sont relativement simples et peuvent \u00e9ventuellement servir de mod\u00e8le\nsi vous souhaitez impl\u00e9menter une librairie client pour votre langage pr\u00e9f\u00e9r\u00e9\n(Ruby, JS, F#, Haskell, Elm, PHP etc..)\n\n\nN'h\u00e9sitez pas \u00e0 contribuer et nous tenir inform\u00e9s pendant ou apr\u00e8s l'Agile Open :-)\n\n\nJouer directement sur ce serveur\n\n\nVous pouvez vous connecter en SSH sur ce serveur en utilisant le compte d'invit\u00e9:\n\n\nLogin: aof\nPassword: aof\n\n\n\nPour tester le chat, vous pouvez dans un terminal lancer le chat Python:\n\n\n$ cd barrel-aof17/clients/python\n$ python chat.py\n\n\n\n\nPuis dans un autre terminal lancer le chat Elixir:\n\n\n$ cd barrel-aof17/clients/elixir\n$ iex -S mix\n> Barrex.Chat.receiver()\n\n\n\n\nEnfin, tapez quelques messages dans le chat python pour les voir apparaitre en temps r\u00e9el\ndans le chat Elixir :-)\n\n\nJouer depuis votre ordinateur\n\n\nLe plus simple est de cloner le repo git contenant les exemples.\n\n\nCloner le \nrepo original github\n:\n\n\n$ git clone https://github.com/BernardNotarianni/barrel-aof17.git\n\n\n\nCloner le mirroir disponible sur ce serveur, pour l'utilisateur \naof\n:\n\n\n$ git clone aof@<IP de ce serveur>:/home/aof/barrel-aof17\n\n\n\nLe mot de passe de l'utilisateur \naof\n est \naof\n.\n\n\nPar exemple sur une machine Windows:\n\n\nC:\\Users\\berna>git clone aof@192.168.1.89:/home/aof/barrel-aof17\nCloning into 'barrel-aof17'...\nThe authenticity of host '192.168.1.89 (192.168.1.89)' can't be established.\nECDSA key fingerprint is SHA256:ZFFeMsqka8jJeMWptx7dAM3cbp24dpTzVIT/E2VIGso.\nAre you sure you want to continue connecting (yes/no)? yes\nWarning: Permanently added '192.168.1.89' (ECDSA) to the list of known hosts.\naof@192.168.1.89's password: <entrez le mot de passe aof>\nremote: Counting objects: 255, done.\nremote: Compressing objects: 100% (175/175), done.\nrRemote: Total 255 (delta 60), reused 247 (delta 57)\nReceiving objects: 100% (255/255), 1.40 MiB | 2.61 MiB/s, done.\nResolving deltas: 100% (60/60), done.\nChecking connectivity... done.\n\nC:\\Users\\berna>dir barrel-aof17\n Le volume dans le lecteur C n\u2019a pas de nom.\n Le num\u00e9ro de s\u00e9rie du volume est 52A8-97FB\n\n R\u00e9pertoire de C:\\Users\\berna\\barrel-aof17\n\n16/01/2017  16:21    <DIR>          .\n16/01/2017  16:21    <DIR>          ..\n16/01/2017  16:21    <DIR>          admin\n16/01/2017  16:21    <DIR>          clients\n16/01/2017  16:21            11\u00a0357 LICENSE\n16/01/2017  16:21                94 README.md\n16/01/2017  16:21    <DIR>          web\n               2 fichier(s)           11\u00a0451 octets\n               5 R\u00e9p(s)  20\u00a0346\u00a0445\u00a0824 octets libres\n\nC:\\Users\\berna>\n\n\n\n\nAcceder aux stores/bases de donn\u00e9es barrel\n\n\nCe serveur contient une instance de barrel par d\u00e9faut, configur\u00e9 sur le \nport 8080\n.\nCelcui est configur\u00e9 avec deux store (base de donn\u00e9es) par d\u00e9faut:\n\n\n\n\nsource\n\n\ntargedb\n\n\n\n\nVous pouvez par exemple faire un \nHTTP GET /_stores\n pour r\u00e9cup\u00e9rer la liste des stores disponibles.\n\n\nQuelques liens utiles\n\n\n\n\nL'API REST de Barrel est disponible sur ce serveur sur le port 8080\n\n\nUn swagger est disponible sur ce serveur (port 8080) sur l'url \n/api-docs\n\n\nUn wiki est disponible sur le port 8001 de ce serveur\n\n\nUne \npage de download\n avec quelques utilitaires",
+            "location": "/", 
+            "text": "Bienvenue sur Barrel-DB!\n\n\nCe serveur est \u00e0 votre disposition pour jouer avec Barrel-DB.\n\n\nVous pouvez utiliser Barrel en utilisant une des 3 API suivantes:\n\n\n\n\nUne API REST standard\n\n\nUne librairie Python\n\n\nUne librairie Elixir\n\n\n\n\nCes API sont relativement simples et peuvent \u00e9ventuellement servir de mod\u00e8le\nsi vous souhaitez impl\u00e9menter une librairie client pour votre langage pr\u00e9f\u00e9r\u00e9\n(Ruby, JS, F#, Haskell, Elm, PHP etc..)\n\n\nN'h\u00e9sitez pas \u00e0 contribuer et nous tenir inform\u00e9s pendant ou apr\u00e8s l'Agile Open :-)\n\n\nJouer directement sur ce serveur\n\n\nVous pouvez vous connecter en SSH sur ce serveur en utilisant le compte d'invit\u00e9:\n\n\nLogin: aof\nPassword: aof\n\n\n\nPour tester le chat, vous pouvez dans un terminal lancer le chat Python:\n\n\n$ cd barrel-aof17/clients/python\n$ python chat.py\n\n\n\n\nPuis dans un autre terminal lancer le chat Elixir:\n\n\n$ cd barrel-aof17/clients/elixir\n$ iex -S mix\n\n Barrex.Chat.receiver()\n\n\n\n\nEnfin, tapez quelques messages dans le chat python pour les voir apparaitre en temps r\u00e9el\ndans le chat Elixir :-)\n\n\nJouer depuis votre ordinateur\n\n\nLe plus simple est de cloner le repo git contenant les exemples.\n\n\nCloner le \nrepo original github\n:\n\n\n$ git clone https://github.com/BernardNotarianni/barrel-aof17.git\n\n\n\nCloner le mirroir disponible sur ce serveur, pour l'utilisateur \naof\n:\n\n\n$ git clone aof@\nIP de ce serveur\n:/home/aof/barrel-aof17\n\n\n\nLe mot de passe de l'utilisateur \naof\n est \naof\n.\n\n\nPar exemple sur une machine Windows:\n\n\nC:\\Users\\berna\ngit clone aof@192.168.1.89:/home/aof/barrel-aof17\nCloning into 'barrel-aof17'...\nThe authenticity of host '192.168.1.89 (192.168.1.89)' can't be established.\nECDSA key fingerprint is SHA256:ZFFeMsqka8jJeMWptx7dAM3cbp24dpTzVIT/E2VIGso.\nAre you sure you want to continue connecting (yes/no)? yes\nWarning: Permanently added '192.168.1.89' (ECDSA) to the list of known hosts.\naof@192.168.1.89's password: \nentrez le mot de passe aof\n\nremote: Counting objects: 255, done.\nremote: Compressing objects: 100% (175/175), done.\nrRemote: Total 255 (delta 60), reused 247 (delta 57)\nReceiving objects: 100% (255/255), 1.40 MiB | 2.61 MiB/s, done.\nResolving deltas: 100% (60/60), done.\nChecking connectivity... done.\n\nC:\\Users\\berna\ndir barrel-aof17\n Le volume dans le lecteur C n\u2019a pas de nom.\n Le num\u00e9ro de s\u00e9rie du volume est 52A8-97FB\n\n R\u00e9pertoire de C:\\Users\\berna\\barrel-aof17\n\n16/01/2017  16:21    \nDIR\n          .\n16/01/2017  16:21    \nDIR\n          ..\n16/01/2017  16:21    \nDIR\n          admin\n16/01/2017  16:21    \nDIR\n          clients\n16/01/2017  16:21            11\u00a0357 LICENSE\n16/01/2017  16:21                94 README.md\n16/01/2017  16:21    \nDIR\n          web\n               2 fichier(s)           11\u00a0451 octets\n               5 R\u00e9p(s)  20\u00a0346\u00a0445\u00a0824 octets libres\n\nC:\\Users\\berna\n\n\n\n\n\nAcceder aux stores/bases de donn\u00e9es barrel\n\n\nCe serveur contient une instance de barrel par d\u00e9faut, configur\u00e9 sur le \nport 8080\n.\nCelcui est configur\u00e9 avec deux store (base de donn\u00e9es) par d\u00e9faut:\n\n\n\n\nsource\n\n\ntargedb\n\n\n\n\nVous pouvez par exemple faire un \nHTTP GET /_stores\n pour r\u00e9cup\u00e9rer la liste des stores disponibles.\n\n\nQuelques liens utiles\n\n\n\n\nL'API REST de Barrel est disponible sur ce serveur sur le port 8080\n\n\nUn swagger est disponible sur ce serveur (port 8080) sur l'url \n/api-docs\n\n\nUn wiki est disponible sur le port 8001 de ce serveur\n\n\nUne \npage de download\n avec quelques utilitaires", 
             "title": "Home"
-        },
+        }, 
         {
-            "location": "/#bienvenue-sur-barrel-db",
-            "text": "Ce serveur est \u00e0 votre disposition pour jouer avec Barrel-DB.  Vous pouvez utiliser Barrel en utilisant une des 3 API suivantes:   Une API REST standard  Une librairie Python  Une librairie Elixir   Ces API sont relativement simples et peuvent \u00e9ventuellement servir de mod\u00e8le\nsi vous souhaitez impl\u00e9menter une librairie client pour votre langage pr\u00e9f\u00e9r\u00e9\n(Ruby, JS, F#, Haskell, Elm, PHP etc..)  N'h\u00e9sitez pas \u00e0 contribuer et nous tenir inform\u00e9s pendant ou apr\u00e8s l'Agile Open :-)",
+            "location": "/#bienvenue-sur-barrel-db", 
+            "text": "Ce serveur est \u00e0 votre disposition pour jouer avec Barrel-DB.  Vous pouvez utiliser Barrel en utilisant une des 3 API suivantes:   Une API REST standard  Une librairie Python  Une librairie Elixir   Ces API sont relativement simples et peuvent \u00e9ventuellement servir de mod\u00e8le\nsi vous souhaitez impl\u00e9menter une librairie client pour votre langage pr\u00e9f\u00e9r\u00e9\n(Ruby, JS, F#, Haskell, Elm, PHP etc..)  N'h\u00e9sitez pas \u00e0 contribuer et nous tenir inform\u00e9s pendant ou apr\u00e8s l'Agile Open :-)", 
             "title": "Bienvenue sur Barrel-DB!"
-        },
+        }, 
         {
-            "location": "/#jouer-directement-sur-ce-serveur",
-            "text": "Vous pouvez vous connecter en SSH sur ce serveur en utilisant le compte d'invit\u00e9:  Login: aof\nPassword: aof  Pour tester le chat, vous pouvez dans un terminal lancer le chat Python:  $ cd barrel-aof17/clients/python\n$ python chat.py  Puis dans un autre terminal lancer le chat Elixir:  $ cd barrel-aof17/clients/elixir\n$ iex -S mix\n> Barrex.Chat.receiver()  Enfin, tapez quelques messages dans le chat python pour les voir apparaitre en temps r\u00e9el\ndans le chat Elixir :-)",
+            "location": "/#jouer-directement-sur-ce-serveur", 
+            "text": "Vous pouvez vous connecter en SSH sur ce serveur en utilisant le compte d'invit\u00e9:  Login: aof\nPassword: aof  Pour tester le chat, vous pouvez dans un terminal lancer le chat Python:  $ cd barrel-aof17/clients/python\n$ python chat.py  Puis dans un autre terminal lancer le chat Elixir:  $ cd barrel-aof17/clients/elixir\n$ iex -S mix  Barrex.Chat.receiver()  Enfin, tapez quelques messages dans le chat python pour les voir apparaitre en temps r\u00e9el\ndans le chat Elixir :-)", 
             "title": "Jouer directement sur ce serveur"
-        },
+        }, 
         {
-            "location": "/#jouer-depuis-votre-ordinateur",
-            "text": "Le plus simple est de cloner le repo git contenant les exemples.  Cloner le  repo original github :  $ git clone https://github.com/BernardNotarianni/barrel-aof17.git  Cloner le mirroir disponible sur ce serveur, pour l'utilisateur  aof :  $ git clone aof@<IP de ce serveur>:/home/aof/barrel-aof17  Le mot de passe de l'utilisateur  aof  est  aof .  Par exemple sur une machine Windows:  C:\\Users\\berna>git clone aof@192.168.1.89:/home/aof/barrel-aof17\nCloning into 'barrel-aof17'...\nThe authenticity of host '192.168.1.89 (192.168.1.89)' can't be established.\nECDSA key fingerprint is SHA256:ZFFeMsqka8jJeMWptx7dAM3cbp24dpTzVIT/E2VIGso.\nAre you sure you want to continue connecting (yes/no)? yes\nWarning: Permanently added '192.168.1.89' (ECDSA) to the list of known hosts.\naof@192.168.1.89's password: <entrez le mot de passe aof>\nremote: Counting objects: 255, done.\nremote: Compressing objects: 100% (175/175), done.\nrRemote: Total 255 (delta 60), reused 247 (delta 57)\nReceiving objects: 100% (255/255), 1.40 MiB | 2.61 MiB/s, done.\nResolving deltas: 100% (60/60), done.\nChecking connectivity... done.\n\nC:\\Users\\berna>dir barrel-aof17\n Le volume dans le lecteur C n\u2019a pas de nom.\n Le num\u00e9ro de s\u00e9rie du volume est 52A8-97FB\n\n R\u00e9pertoire de C:\\Users\\berna\\barrel-aof17\n\n16/01/2017  16:21    <DIR>          .\n16/01/2017  16:21    <DIR>          ..\n16/01/2017  16:21    <DIR>          admin\n16/01/2017  16:21    <DIR>          clients\n16/01/2017  16:21            11\u00a0357 LICENSE\n16/01/2017  16:21                94 README.md\n16/01/2017  16:21    <DIR>          web\n               2 fichier(s)           11\u00a0451 octets\n               5 R\u00e9p(s)  20\u00a0346\u00a0445\u00a0824 octets libres\n\nC:\\Users\\berna>",
+            "location": "/#jouer-depuis-votre-ordinateur", 
+            "text": "Le plus simple est de cloner le repo git contenant les exemples.  Cloner le  repo original github :  $ git clone https://github.com/BernardNotarianni/barrel-aof17.git  Cloner le mirroir disponible sur ce serveur, pour l'utilisateur  aof :  $ git clone aof@ IP de ce serveur :/home/aof/barrel-aof17  Le mot de passe de l'utilisateur  aof  est  aof .  Par exemple sur une machine Windows:  C:\\Users\\berna git clone aof@192.168.1.89:/home/aof/barrel-aof17\nCloning into 'barrel-aof17'...\nThe authenticity of host '192.168.1.89 (192.168.1.89)' can't be established.\nECDSA key fingerprint is SHA256:ZFFeMsqka8jJeMWptx7dAM3cbp24dpTzVIT/E2VIGso.\nAre you sure you want to continue connecting (yes/no)? yes\nWarning: Permanently added '192.168.1.89' (ECDSA) to the list of known hosts.\naof@192.168.1.89's password:  entrez le mot de passe aof \nremote: Counting objects: 255, done.\nremote: Compressing objects: 100% (175/175), done.\nrRemote: Total 255 (delta 60), reused 247 (delta 57)\nReceiving objects: 100% (255/255), 1.40 MiB | 2.61 MiB/s, done.\nResolving deltas: 100% (60/60), done.\nChecking connectivity... done.\n\nC:\\Users\\berna dir barrel-aof17\n Le volume dans le lecteur C n\u2019a pas de nom.\n Le num\u00e9ro de s\u00e9rie du volume est 52A8-97FB\n\n R\u00e9pertoire de C:\\Users\\berna\\barrel-aof17\n\n16/01/2017  16:21     DIR           .\n16/01/2017  16:21     DIR           ..\n16/01/2017  16:21     DIR           admin\n16/01/2017  16:21     DIR           clients\n16/01/2017  16:21            11\u00a0357 LICENSE\n16/01/2017  16:21                94 README.md\n16/01/2017  16:21     DIR           web\n               2 fichier(s)           11\u00a0451 octets\n               5 R\u00e9p(s)  20\u00a0346\u00a0445\u00a0824 octets libres\n\nC:\\Users\\berna", 
             "title": "Jouer depuis votre ordinateur"
-        },
+        }, 
         {
-            "location": "/#acceder-aux-storesbases-de-donnees-barrel",
-            "text": "Ce serveur contient une instance de barrel par d\u00e9faut, configur\u00e9 sur le  port 8080 .\nCelcui est configur\u00e9 avec deux store (base de donn\u00e9es) par d\u00e9faut:   source  targedb   Vous pouvez par exemple faire un  HTTP GET /_stores  pour r\u00e9cup\u00e9rer la liste des stores disponibles.",
+            "location": "/#acceder-aux-storesbases-de-donnees-barrel", 
+            "text": "Ce serveur contient une instance de barrel par d\u00e9faut, configur\u00e9 sur le  port 8080 .\nCelcui est configur\u00e9 avec deux store (base de donn\u00e9es) par d\u00e9faut:   source  targedb   Vous pouvez par exemple faire un  HTTP GET /_stores  pour r\u00e9cup\u00e9rer la liste des stores disponibles.", 
             "title": "Acceder aux stores/bases de donn\u00e9es barrel"
-        },
+        }, 
         {
-            "location": "/#quelques-liens-utiles",
-            "text": "L'API REST de Barrel est disponible sur ce serveur sur le port 8080  Un swagger est disponible sur ce serveur (port 8080) sur l'url  /api-docs  Un wiki est disponible sur le port 8001 de ce serveur  Une  page de download  avec quelques utilitaires",
+            "location": "/#quelques-liens-utiles", 
+            "text": "L'API REST de Barrel est disponible sur ce serveur sur le port 8080  Un swagger est disponible sur ce serveur (port 8080) sur l'url  /api-docs  Un wiki est disponible sur le port 8001 de ce serveur  Une  page de download  avec quelques utilitaires", 
             "title": "Quelques liens utiles"
-        },
+        }, 
         {
-            "location": "/barrel/rest/",
-            "text": "Concepts de Barrel-DB\n\n\nBase de donn\u00e9es orient\u00e9es documents\n\n\nBarrel-DB est un base de donn\u00e9es orient\u00e9e documents. Vous stockez et retrouvez des\ndocuments json \u00e0 l'aide d'une API REST. Vous disposez des methodes POST, PUT et\nDELETE pour manipuler les documents.\n\n\nLes urls des documents prennent la forme:\n\n\nGET /<store>/<docid>\n\n\n\nPar exemple:\n\n\nGET /source/cat\n\n\n\nPour cr\u00e9er un nouveau documents, nous pouvons renseigner le champ \nid\n avec l'id du\ndocument:\n\n\nPOST /source\n{\n  'id': 'cat',\n  'name': 'Tom'\n}\n\n\n\n\nSi nous ne donnons pas d'\nid\n au document, barrel calculera un identifiant\nunique (de type GUID) que l'on peut retrouver dans le body du r\u00e9sultat de la requete HTTP.\n\n\nPOST /source\n{\n  \"name\": \"Tom\"\n}\n\nBody de la requete au retour:\n{\n  \"id\": \"b0bd800d-58e2-4279-a5fe-c8e21dbe3040\",\n  \"ok\": true,\n  \"rev\": \"1-4ce4351b36db87b1b455421d9e0be43b\"\n}\n\n\n\n\nGestion des conflits: utiliser les r\u00e9visions\n\n\nBarrel utilise un mecanisme de mises \u00e0 jour concurrentes des documents de type \"optimiste\".\nIl n'y a pas de syst\u00e8me de transaction ou de \"lock\".\n\n\nPour v\u00e9rifier que personne n'a pas modifier votre document entre le moment o\u00f9 vous l'avez lu\net celui ou l'\u00e9criture se d\u00e9roule, vous devez utiliser le champs \nrev\n automatiquement\ng\u00e9n\u00e9r\u00e9 \u00e0 chaque cr\u00e9ation ou mise \u00e0 jour d'un document.\n\n\nCe champ est constitu\u00e9 d'un num\u00e9ro de sequence incr\u00e9ment\u00e9 \u00e0 chaque mise \u00e0 jour et d'un MD5\ncalcul\u00e9 \u00e0 partir du contenu du document.\n\n\nExemples:\n\n\n1-4ce4351b36db87b1b455421d9e0be43b\n2-7dce3773ba098f2c09b24697af544e63\n3-dce8a2ab14c7e40b60c6550e8af8d0a5\n\n\n\n\nLors d'une mise \u00e0 jour avec \nPUT\n ou d'une suppression avec \nDELETE\n vous devez indiquer\nla derni\u00e8re revision du document que vous voulez mettre \u00e0 jour. Si lors de l'op\u00e9ration\nBarrel se rend compte que la r\u00e9vision ne correspond pas, c'est probablement que quelqu'un d'autre\na mise \u00e0 jour le document entre temps. Il vous retourne alors un code erreur 409 \"Conflict\"\n\n\nVous pouvez alors essayer de relire le document afin\nde retrouver la deni\u00e8re r\u00e9vision et r\u00e9assyer jusqu'\u00e0 ce que cela passe.\n\n\nPour mettre \u00e0 jour un document:\n1 - Lire le document\n2 - Modifier le document\n3 - Faire un PUT pour mettre \u00e0 jour le document\n4 - Si vous avez un code erreur 409, reprendre \u00e0 l'\u00e9pate 1\n\n\n\n\nAPI REST\n\n\nHeader HTTP\n\n\nPour toute les requ\u00eates HTTP, inclure dans le header \nContent-Type: application/json\n\n\nIl n'y pas de filtre d'autorisation: tout le monde a acc\u00e8s \u00e0 tout sur l'API HTTP Rest de ce serveur.\n\n\nGET /<store>/<docid>\n\n\nRequest:\n\n\nGET /source/chat\n\n\n\n\nReply:\n\n\n{\n  \"_rev\": \"1-435823fe88aa55869cba856df1a2d570\",\n  \"id\": \"chat\",\n  \"name\": \"tom\"\n}\n\n\n\n\nPOST /<store>\n\n\nRequest:\n\n\nPOST /source\n{\n  \"name\": \"tom\"\n}\n\n\n\n\nReply:\n\n\n{\n  \"id\": \"98d5b5c8-af18-453a-bfb9-b0c6ca0da19b\",\n  \"ok\": true,\n  \"rev\": \"1-ddffb068a15dda0cf75c2e9223e375fa\"\n}\n\n\n\n\nPUT /<store>/<docid>\n\n\nCr\u00e9ation d'un document\n\n\nIl faut indiquer le m\u00eame \ndocid\n dans l'URL de la requete et dans le champ \nid\n du document JSON.\n\n\nPUT /source/chat\n{\n  \"id\": \"chat\",\n  \"name\": \"tom\"\n}\n\n\n\n\nReply:\n\n\n{\n  \"id\": \"chat\",\n  \"ok\": true,\n  \"rev\": \"1-435823fe88aa55869cba856df1a2d570\"\n}\n\n\n\n\nMise \u00e0 jour d'un document existant\n\n\nPour mettre \u00e0 jour un document, il faut indiquer pr\u00e9cisement le derni\u00e8re r\u00e9vision dans le champ \n_rev\n.\n\n\nPUT /source/chat\n{\n  \"_rev\": \"1-435823fe88aa55869cba856df1a2d570\",\n  \"id\": \"chat\",\n  \"name\": \"Grumpy Cat\"\n}\n\n\n\n\nReply:\n\n\n{\n  \"id\": \"chat\",\n  \"ok\": true,\n  \"rev\": \"2-8cfbb3023f94ddd1f1bf6ee7a9ba2019\"\n}\n\n\n\n\nDELETE /<store>/<docid>\n\n\nPour supprimer un document, indiquer dans le parametre d'URL \nrev\n la derni\u00e8re r\u00e9vision.\n\n\nDELETE /source/chat?rev=2-8cfbb3023f94ddd1f1bf6ee7a9ba2019\n\n\n\n\nReply:\n\n\n{\n  \"id\": \"chat\",\n  \"ok\": true,\n  \"rev\": \"3-8a17b246465973518019470d6b4540fd\"\n}\n\n\n\n\nGET /<store>/_all_docs\n\n\nListe tous les documents disponibles dans un store:\n\n\nGET /source/_all_docs\n\n\n\n\nReply:\n\n\n{\n  \"offset\": 0,\n  \"rows\": [\n    {\n      \"id\": \"chat\",\n      \"rev\": \"3-8a17b246465973518019470d6b4540fd\"\n    },\n    {\n      \"id\": \"98d5b5c8-af18-453a-bfb9-b0c6ca0da19b\",\n      \"rev\": \"1-ddffb068a15dda0cf75c2e9223e375fa\"\n    }\n  ],\n  \"total_rows\": 2\n}\n\n\n\n\nGET /<store>/_changes?feed=eventsource\n\n\nInforme de toutes les modifications de doducment d'un store sous la forme de\n\nServer Sent Events\n HTTP.\n\n\nGET /source/_all_docs\n\n\n\n\nReply:\n\n\nid: 546386C4D14C0\ndata: {\"last_seq\":7,\"results\":[]}\n\nid: 546386CDC2CE0\ndata: {\"last_seq\":8,\"results\":[{\"changes\":[\"1-6a5f1ebdc7e3b20430b8b834dd505e32\"],\"id\":\"51b38616-b2fe-4772-9dbe-6c06575961d7\",\"seq\":8}]}\n\nid: 546386D507634\ndata: {\"last_seq\":9,\"results\":[{\"changes\":[\"1-88ba268c6c1ba33270411ac6666a7fe1\"],\"id\":\"2285c50e-c30a-4aeb-ace8-10c5befb09bc\",\"seq\":9}]}",
+            "location": "/barrel/rest/", 
+            "text": "Concepts de Barrel-DB\n\n\nBase de donn\u00e9es orient\u00e9es documents\n\n\nBarrel-DB est un base de donn\u00e9es orient\u00e9e documents. Vous stockez et retrouvez des\ndocuments json \u00e0 l'aide d'une API REST. Vous disposez des methodes POST, PUT et\nDELETE pour manipuler les documents.\n\n\nLes urls des documents prennent la forme:\n\n\nGET /\nstore\n/\ndocid\n\n\n\n\nPar exemple:\n\n\nGET /source/cat\n\n\n\nPour cr\u00e9er un nouveau documents, nous pouvons renseigner le champ \nid\n avec l'id du\ndocument:\n\n\nPOST /source\n{\n  'id': 'cat',\n  'name': 'Tom'\n}\n\n\n\n\nSi nous ne donnons pas d'\nid\n au document, barrel calculera un identifiant\nunique (de type GUID) que l'on peut retrouver dans le body du r\u00e9sultat de la requete HTTP.\n\n\nPOST /source\n{\n  \nname\n: \nTom\n\n}\n\nBody de la requete au retour:\n{\n  \nid\n: \nb0bd800d-58e2-4279-a5fe-c8e21dbe3040\n,\n  \nok\n: true,\n  \nrev\n: \n1-4ce4351b36db87b1b455421d9e0be43b\n\n}\n\n\n\n\nGestion des conflits: utiliser les r\u00e9visions\n\n\nBarrel utilise un mecanisme de mises \u00e0 jour concurrentes des documents de type \"optimiste\".\nIl n'y a pas de syst\u00e8me de transaction ou de \"lock\".\n\n\nPour v\u00e9rifier que personne n'a pas modifier votre document entre le moment o\u00f9 vous l'avez lu\net celui ou l'\u00e9criture se d\u00e9roule, vous devez utiliser le champs \nrev\n automatiquement\ng\u00e9n\u00e9r\u00e9 \u00e0 chaque cr\u00e9ation ou mise \u00e0 jour d'un document.\n\n\nCe champ est constitu\u00e9 d'un num\u00e9ro de sequence incr\u00e9ment\u00e9 \u00e0 chaque mise \u00e0 jour et d'un MD5\ncalcul\u00e9 \u00e0 partir du contenu du document.\n\n\nExemples:\n\n\n1-4ce4351b36db87b1b455421d9e0be43b\n2-7dce3773ba098f2c09b24697af544e63\n3-dce8a2ab14c7e40b60c6550e8af8d0a5\n\n\n\n\nLors d'une mise \u00e0 jour avec \nPUT\n ou d'une suppression avec \nDELETE\n vous devez indiquer\nla derni\u00e8re revision du document que vous voulez mettre \u00e0 jour. Si lors de l'op\u00e9ration\nBarrel se rend compte que la r\u00e9vision ne correspond pas, c'est probablement que quelqu'un d'autre\na mise \u00e0 jour le document entre temps. Il vous retourne alors un code erreur 409 \"Conflict\"\n\n\nVous pouvez alors essayer de relire le document afin\nde retrouver la deni\u00e8re r\u00e9vision et r\u00e9assyer jusqu'\u00e0 ce que cela passe.\n\n\nPour mettre \u00e0 jour un document:\n1 - Lire le document\n2 - Modifier le document\n3 - Faire un PUT pour mettre \u00e0 jour le document\n4 - Si vous avez un code erreur 409, reprendre \u00e0 l'\u00e9pate 1\n\n\n\n\nAPI REST\n\n\nHeader HTTP\n\n\nPour toute les requ\u00eates HTTP, inclure dans le header \nContent-Type: application/json\n\n\nIl n'y pas de filtre d'autorisation: tout le monde a acc\u00e8s \u00e0 tout sur l'API HTTP Rest de ce serveur.\n\n\nGET /\nstore\n/\ndocid\n\n\nRequest:\n\n\nGET /source/chat\n\n\n\n\nReply:\n\n\n{\n  \n_rev\n: \n1-435823fe88aa55869cba856df1a2d570\n,\n  \nid\n: \nchat\n,\n  \nname\n: \ntom\n\n}\n\n\n\n\nPOST /\nstore\n\n\nRequest:\n\n\nPOST /source\n{\n  \nname\n: \ntom\n\n}\n\n\n\n\nReply:\n\n\n{\n  \nid\n: \n98d5b5c8-af18-453a-bfb9-b0c6ca0da19b\n,\n  \nok\n: true,\n  \nrev\n: \n1-ddffb068a15dda0cf75c2e9223e375fa\n\n}\n\n\n\n\nPUT /\nstore\n/\ndocid\n\n\nCr\u00e9ation d'un document\n\n\nIl faut indiquer le m\u00eame \ndocid\n dans l'URL de la requete et dans le champ \nid\n du document JSON.\n\n\nPUT /source/chat\n{\n  \nid\n: \nchat\n,\n  \nname\n: \ntom\n\n}\n\n\n\n\nReply:\n\n\n{\n  \nid\n: \nchat\n,\n  \nok\n: true,\n  \nrev\n: \n1-435823fe88aa55869cba856df1a2d570\n\n}\n\n\n\n\nMise \u00e0 jour d'un document existant\n\n\nPour mettre \u00e0 jour un document, il faut indiquer pr\u00e9cisement le derni\u00e8re r\u00e9vision dans le champ \n_rev\n.\n\n\nPUT /source/chat\n{\n  \n_rev\n: \n1-435823fe88aa55869cba856df1a2d570\n,\n  \nid\n: \nchat\n,\n  \nname\n: \nGrumpy Cat\n\n}\n\n\n\n\nReply:\n\n\n{\n  \nid\n: \nchat\n,\n  \nok\n: true,\n  \nrev\n: \n2-8cfbb3023f94ddd1f1bf6ee7a9ba2019\n\n}\n\n\n\n\nDELETE /\nstore\n/\ndocid\n\n\nPour supprimer un document, indiquer dans le parametre d'URL \nrev\n la derni\u00e8re r\u00e9vision.\n\n\nDELETE /source/chat?rev=2-8cfbb3023f94ddd1f1bf6ee7a9ba2019\n\n\n\n\nReply:\n\n\n{\n  \nid\n: \nchat\n,\n  \nok\n: true,\n  \nrev\n: \n3-8a17b246465973518019470d6b4540fd\n\n}\n\n\n\n\nGET /\nstore\n/_all_docs\n\n\nListe tous les documents disponibles dans un store:\n\n\nGET /source/_all_docs\n\n\n\n\nReply:\n\n\n{\n  \noffset\n: 0,\n  \nrows\n: [\n    {\n      \nid\n: \nchat\n,\n      \nrev\n: \n3-8a17b246465973518019470d6b4540fd\n\n    },\n    {\n      \nid\n: \n98d5b5c8-af18-453a-bfb9-b0c6ca0da19b\n,\n      \nrev\n: \n1-ddffb068a15dda0cf75c2e9223e375fa\n\n    }\n  ],\n  \ntotal_rows\n: 2\n}\n\n\n\n\nGET /\nstore\n/_changes?feed=eventsource\n\n\nInforme de toutes les modifications de doducment d'un store sous la forme de\n\nServer Sent Events\n HTTP.\n\n\nGET /source/_all_docs\n\n\n\n\nReply:\n\n\nid: 546386C4D14C0\ndata: {\nlast_seq\n:7,\nresults\n:[]}\n\nid: 546386CDC2CE0\ndata: {\nlast_seq\n:8,\nresults\n:[{\nchanges\n:[\n1-6a5f1ebdc7e3b20430b8b834dd505e32\n],\nid\n:\n51b38616-b2fe-4772-9dbe-6c06575961d7\n,\nseq\n:8}]}\n\nid: 546386D507634\ndata: {\nlast_seq\n:9,\nresults\n:[{\nchanges\n:[\n1-88ba268c6c1ba33270411ac6666a7fe1\n],\nid\n:\n2285c50e-c30a-4aeb-ace8-10c5befb09bc\n,\nseq\n:9}]}", 
             "title": "API Rest"
-        },
+        }, 
         {
-            "location": "/barrel/rest/#concepts-de-barrel-db",
-            "text": "",
+            "location": "/barrel/rest/#concepts-de-barrel-db", 
+            "text": "", 
             "title": "Concepts de Barrel-DB"
-        },
+        }, 
         {
-            "location": "/barrel/rest/#base-de-donnees-orientees-documents",
-            "text": "Barrel-DB est un base de donn\u00e9es orient\u00e9e documents. Vous stockez et retrouvez des\ndocuments json \u00e0 l'aide d'une API REST. Vous disposez des methodes POST, PUT et\nDELETE pour manipuler les documents.  Les urls des documents prennent la forme:  GET /<store>/<docid>  Par exemple:  GET /source/cat  Pour cr\u00e9er un nouveau documents, nous pouvons renseigner le champ  id  avec l'id du\ndocument:  POST /source\n{\n  'id': 'cat',\n  'name': 'Tom'\n}  Si nous ne donnons pas d' id  au document, barrel calculera un identifiant\nunique (de type GUID) que l'on peut retrouver dans le body du r\u00e9sultat de la requete HTTP.  POST /source\n{\n  \"name\": \"Tom\"\n}\n\nBody de la requete au retour:\n{\n  \"id\": \"b0bd800d-58e2-4279-a5fe-c8e21dbe3040\",\n  \"ok\": true,\n  \"rev\": \"1-4ce4351b36db87b1b455421d9e0be43b\"\n}",
+            "location": "/barrel/rest/#base-de-donnees-orientees-documents", 
+            "text": "Barrel-DB est un base de donn\u00e9es orient\u00e9e documents. Vous stockez et retrouvez des\ndocuments json \u00e0 l'aide d'une API REST. Vous disposez des methodes POST, PUT et\nDELETE pour manipuler les documents.  Les urls des documents prennent la forme:  GET / store / docid   Par exemple:  GET /source/cat  Pour cr\u00e9er un nouveau documents, nous pouvons renseigner le champ  id  avec l'id du\ndocument:  POST /source\n{\n  'id': 'cat',\n  'name': 'Tom'\n}  Si nous ne donnons pas d' id  au document, barrel calculera un identifiant\nunique (de type GUID) que l'on peut retrouver dans le body du r\u00e9sultat de la requete HTTP.  POST /source\n{\n   name :  Tom \n}\n\nBody de la requete au retour:\n{\n   id :  b0bd800d-58e2-4279-a5fe-c8e21dbe3040 ,\n   ok : true,\n   rev :  1-4ce4351b36db87b1b455421d9e0be43b \n}", 
             "title": "Base de donn\u00e9es orient\u00e9es documents"
-        },
+        }, 
         {
-            "location": "/barrel/rest/#gestion-des-conflits-utiliser-les-revisions",
-            "text": "Barrel utilise un mecanisme de mises \u00e0 jour concurrentes des documents de type \"optimiste\".\nIl n'y a pas de syst\u00e8me de transaction ou de \"lock\".  Pour v\u00e9rifier que personne n'a pas modifier votre document entre le moment o\u00f9 vous l'avez lu\net celui ou l'\u00e9criture se d\u00e9roule, vous devez utiliser le champs  rev  automatiquement\ng\u00e9n\u00e9r\u00e9 \u00e0 chaque cr\u00e9ation ou mise \u00e0 jour d'un document.  Ce champ est constitu\u00e9 d'un num\u00e9ro de sequence incr\u00e9ment\u00e9 \u00e0 chaque mise \u00e0 jour et d'un MD5\ncalcul\u00e9 \u00e0 partir du contenu du document.  Exemples:  1-4ce4351b36db87b1b455421d9e0be43b\n2-7dce3773ba098f2c09b24697af544e63\n3-dce8a2ab14c7e40b60c6550e8af8d0a5  Lors d'une mise \u00e0 jour avec  PUT  ou d'une suppression avec  DELETE  vous devez indiquer\nla derni\u00e8re revision du document que vous voulez mettre \u00e0 jour. Si lors de l'op\u00e9ration\nBarrel se rend compte que la r\u00e9vision ne correspond pas, c'est probablement que quelqu'un d'autre\na mise \u00e0 jour le document entre temps. Il vous retourne alors un code erreur 409 \"Conflict\"  Vous pouvez alors essayer de relire le document afin\nde retrouver la deni\u00e8re r\u00e9vision et r\u00e9assyer jusqu'\u00e0 ce que cela passe.  Pour mettre \u00e0 jour un document:\n1 - Lire le document\n2 - Modifier le document\n3 - Faire un PUT pour mettre \u00e0 jour le document\n4 - Si vous avez un code erreur 409, reprendre \u00e0 l'\u00e9pate 1",
+            "location": "/barrel/rest/#gestion-des-conflits-utiliser-les-revisions", 
+            "text": "Barrel utilise un mecanisme de mises \u00e0 jour concurrentes des documents de type \"optimiste\".\nIl n'y a pas de syst\u00e8me de transaction ou de \"lock\".  Pour v\u00e9rifier que personne n'a pas modifier votre document entre le moment o\u00f9 vous l'avez lu\net celui ou l'\u00e9criture se d\u00e9roule, vous devez utiliser le champs  rev  automatiquement\ng\u00e9n\u00e9r\u00e9 \u00e0 chaque cr\u00e9ation ou mise \u00e0 jour d'un document.  Ce champ est constitu\u00e9 d'un num\u00e9ro de sequence incr\u00e9ment\u00e9 \u00e0 chaque mise \u00e0 jour et d'un MD5\ncalcul\u00e9 \u00e0 partir du contenu du document.  Exemples:  1-4ce4351b36db87b1b455421d9e0be43b\n2-7dce3773ba098f2c09b24697af544e63\n3-dce8a2ab14c7e40b60c6550e8af8d0a5  Lors d'une mise \u00e0 jour avec  PUT  ou d'une suppression avec  DELETE  vous devez indiquer\nla derni\u00e8re revision du document que vous voulez mettre \u00e0 jour. Si lors de l'op\u00e9ration\nBarrel se rend compte que la r\u00e9vision ne correspond pas, c'est probablement que quelqu'un d'autre\na mise \u00e0 jour le document entre temps. Il vous retourne alors un code erreur 409 \"Conflict\"  Vous pouvez alors essayer de relire le document afin\nde retrouver la deni\u00e8re r\u00e9vision et r\u00e9assyer jusqu'\u00e0 ce que cela passe.  Pour mettre \u00e0 jour un document:\n1 - Lire le document\n2 - Modifier le document\n3 - Faire un PUT pour mettre \u00e0 jour le document\n4 - Si vous avez un code erreur 409, reprendre \u00e0 l'\u00e9pate 1", 
             "title": "Gestion des conflits: utiliser les r\u00e9visions"
-        },
+        }, 
         {
-            "location": "/barrel/rest/#api-rest",
-            "text": "",
+            "location": "/barrel/rest/#api-rest", 
+            "text": "", 
             "title": "API REST"
-        },
+        }, 
         {
-            "location": "/barrel/rest/#header-http",
-            "text": "Pour toute les requ\u00eates HTTP, inclure dans le header  Content-Type: application/json  Il n'y pas de filtre d'autorisation: tout le monde a acc\u00e8s \u00e0 tout sur l'API HTTP Rest de ce serveur.",
+            "location": "/barrel/rest/#header-http", 
+            "text": "Pour toute les requ\u00eates HTTP, inclure dans le header  Content-Type: application/json  Il n'y pas de filtre d'autorisation: tout le monde a acc\u00e8s \u00e0 tout sur l'API HTTP Rest de ce serveur.", 
             "title": "Header HTTP"
-        },
+        }, 
         {
-            "location": "/barrel/rest/#get-storedocid",
-            "text": "Request:  GET /source/chat  Reply:  {\n  \"_rev\": \"1-435823fe88aa55869cba856df1a2d570\",\n  \"id\": \"chat\",\n  \"name\": \"tom\"\n}",
+            "location": "/barrel/rest/#get-storedocid", 
+            "text": "Request:  GET /source/chat  Reply:  {\n   _rev :  1-435823fe88aa55869cba856df1a2d570 ,\n   id :  chat ,\n   name :  tom \n}", 
             "title": "GET /&lt;store&gt;/&lt;docid&gt;"
-        },
+        }, 
         {
-            "location": "/barrel/rest/#post-store",
-            "text": "Request:  POST /source\n{\n  \"name\": \"tom\"\n}  Reply:  {\n  \"id\": \"98d5b5c8-af18-453a-bfb9-b0c6ca0da19b\",\n  \"ok\": true,\n  \"rev\": \"1-ddffb068a15dda0cf75c2e9223e375fa\"\n}",
+            "location": "/barrel/rest/#post-store", 
+            "text": "Request:  POST /source\n{\n   name :  tom \n}  Reply:  {\n   id :  98d5b5c8-af18-453a-bfb9-b0c6ca0da19b ,\n   ok : true,\n   rev :  1-ddffb068a15dda0cf75c2e9223e375fa \n}", 
             "title": "POST /&lt;store&gt;"
-        },
+        }, 
         {
-            "location": "/barrel/rest/#put-storedocid",
-            "text": "",
+            "location": "/barrel/rest/#put-storedocid", 
+            "text": "", 
             "title": "PUT /&lt;store&gt;/&lt;docid&gt;"
-        },
+        }, 
         {
-            "location": "/barrel/rest/#creation-dun-document",
-            "text": "Il faut indiquer le m\u00eame  docid  dans l'URL de la requete et dans le champ  id  du document JSON.  PUT /source/chat\n{\n  \"id\": \"chat\",\n  \"name\": \"tom\"\n}  Reply:  {\n  \"id\": \"chat\",\n  \"ok\": true,\n  \"rev\": \"1-435823fe88aa55869cba856df1a2d570\"\n}",
+            "location": "/barrel/rest/#creation-dun-document", 
+            "text": "Il faut indiquer le m\u00eame  docid  dans l'URL de la requete et dans le champ  id  du document JSON.  PUT /source/chat\n{\n   id :  chat ,\n   name :  tom \n}  Reply:  {\n   id :  chat ,\n   ok : true,\n   rev :  1-435823fe88aa55869cba856df1a2d570 \n}", 
             "title": "Cr\u00e9ation d'un document"
-        },
+        }, 
         {
-            "location": "/barrel/rest/#mise-a-jour-dun-document-existant",
-            "text": "Pour mettre \u00e0 jour un document, il faut indiquer pr\u00e9cisement le derni\u00e8re r\u00e9vision dans le champ  _rev .  PUT /source/chat\n{\n  \"_rev\": \"1-435823fe88aa55869cba856df1a2d570\",\n  \"id\": \"chat\",\n  \"name\": \"Grumpy Cat\"\n}  Reply:  {\n  \"id\": \"chat\",\n  \"ok\": true,\n  \"rev\": \"2-8cfbb3023f94ddd1f1bf6ee7a9ba2019\"\n}",
+            "location": "/barrel/rest/#mise-a-jour-dun-document-existant", 
+            "text": "Pour mettre \u00e0 jour un document, il faut indiquer pr\u00e9cisement le derni\u00e8re r\u00e9vision dans le champ  _rev .  PUT /source/chat\n{\n   _rev :  1-435823fe88aa55869cba856df1a2d570 ,\n   id :  chat ,\n   name :  Grumpy Cat \n}  Reply:  {\n   id :  chat ,\n   ok : true,\n   rev :  2-8cfbb3023f94ddd1f1bf6ee7a9ba2019 \n}", 
             "title": "Mise \u00e0 jour d'un document existant"
-        },
+        }, 
         {
-            "location": "/barrel/rest/#delete-storedocid",
-            "text": "Pour supprimer un document, indiquer dans le parametre d'URL  rev  la derni\u00e8re r\u00e9vision.  DELETE /source/chat?rev=2-8cfbb3023f94ddd1f1bf6ee7a9ba2019  Reply:  {\n  \"id\": \"chat\",\n  \"ok\": true,\n  \"rev\": \"3-8a17b246465973518019470d6b4540fd\"\n}",
+            "location": "/barrel/rest/#delete-storedocid", 
+            "text": "Pour supprimer un document, indiquer dans le parametre d'URL  rev  la derni\u00e8re r\u00e9vision.  DELETE /source/chat?rev=2-8cfbb3023f94ddd1f1bf6ee7a9ba2019  Reply:  {\n   id :  chat ,\n   ok : true,\n   rev :  3-8a17b246465973518019470d6b4540fd \n}", 
             "title": "DELETE /&lt;store&gt;/&lt;docid&gt;"
-        },
+        }, 
         {
-            "location": "/barrel/rest/#get-store_all_docs",
-            "text": "Liste tous les documents disponibles dans un store:  GET /source/_all_docs  Reply:  {\n  \"offset\": 0,\n  \"rows\": [\n    {\n      \"id\": \"chat\",\n      \"rev\": \"3-8a17b246465973518019470d6b4540fd\"\n    },\n    {\n      \"id\": \"98d5b5c8-af18-453a-bfb9-b0c6ca0da19b\",\n      \"rev\": \"1-ddffb068a15dda0cf75c2e9223e375fa\"\n    }\n  ],\n  \"total_rows\": 2\n}",
+            "location": "/barrel/rest/#get-store_all_docs", 
+            "text": "Liste tous les documents disponibles dans un store:  GET /source/_all_docs  Reply:  {\n   offset : 0,\n   rows : [\n    {\n       id :  chat ,\n       rev :  3-8a17b246465973518019470d6b4540fd \n    },\n    {\n       id :  98d5b5c8-af18-453a-bfb9-b0c6ca0da19b ,\n       rev :  1-ddffb068a15dda0cf75c2e9223e375fa \n    }\n  ],\n   total_rows : 2\n}", 
             "title": "GET /&lt;store&gt;/_all_docs"
-        },
+        }, 
         {
-            "location": "/barrel/rest/#get-store_changesfeedeventsource",
-            "text": "Informe de toutes les modifications de doducment d'un store sous la forme de Server Sent Events  HTTP.  GET /source/_all_docs  Reply:  id: 546386C4D14C0\ndata: {\"last_seq\":7,\"results\":[]}\n\nid: 546386CDC2CE0\ndata: {\"last_seq\":8,\"results\":[{\"changes\":[\"1-6a5f1ebdc7e3b20430b8b834dd505e32\"],\"id\":\"51b38616-b2fe-4772-9dbe-6c06575961d7\",\"seq\":8}]}\n\nid: 546386D507634\ndata: {\"last_seq\":9,\"results\":[{\"changes\":[\"1-88ba268c6c1ba33270411ac6666a7fe1\"],\"id\":\"2285c50e-c30a-4aeb-ace8-10c5befb09bc\",\"seq\":9}]}",
+            "location": "/barrel/rest/#get-store_changesfeedeventsource", 
+            "text": "Informe de toutes les modifications de doducment d'un store sous la forme de Server Sent Events  HTTP.  GET /source/_all_docs  Reply:  id: 546386C4D14C0\ndata: { last_seq :7, results :[]}\n\nid: 546386CDC2CE0\ndata: { last_seq :8, results :[{ changes :[ 1-6a5f1ebdc7e3b20430b8b834dd505e32 ], id : 51b38616-b2fe-4772-9dbe-6c06575961d7 , seq :8}]}\n\nid: 546386D507634\ndata: { last_seq :9, results :[{ changes :[ 1-88ba268c6c1ba33270411ac6666a7fe1 ], id : 2285c50e-c30a-4aeb-ace8-10c5befb09bc , seq :9}]}", 
             "title": "GET /&lt;store&gt;/_changes?feed=eventsource"
-        },
+        }, 
         {
-            "location": "/barrel/python/",
-            "text": "Librairie Python\n\n\nVous pouvez utiliser la librairie \nbarrel.py\n pour acceder facilement\n\u00e0 une base Barrel.\n\n\nN'oubliez pas d'installer les dependances n\u00e9cessaire:\n\n\n$ pip install requests\n$ pip install sseclient\n\n\n\nOuvrir une base de donn\u00e9e\n\n\nfrom barrel import Database\n\ndatabase_url = \"http://192.168.1.89:8080/source\"\ndatabase = Database(database_url)\n\n\n\n\nL'objet \ndatabase\n ainsi cr\u00e9\u00e9 peut etre utilis\u00e9 pour toutes\nles op\u00e9rations sur barrel.\n\n\nLire un document\n\n\nLire la derni\u00e8re version d'un document:\n\n\nfrom barrel import Database\n\ndatabase = Database(database_url)\ndoc = database.get(docid)\n\n\n\n\nCr\u00e9er un document\n\n\nUtilisez la m\u00e9thode \nput\n pour cr\u00e9er ou mettre \u00e0 jour un document.\nN'oubliez pas de bien renseigner le champ \nid\n obligatoire:\n\n\ndatabase = Database(database_url)\ndoc = {'id': 'chat', 'message': 'hello world'}\ndatabase.put(doc)\n\n\n\n\nVous pouvez utiliser \npost\n si vous souhaitez laisser le serveur\nassigner lui-m\u00eame un \nid\n unique:\n\n\ndatabase = Database(database_url)\ndoc = {'message': 'hello world'}\ndatabase.post(doc)\n\n\n\n\nMettre \u00e0 jour un document existant\n\n\nUn simple appel \u00e0 la methode \nput\n permet de mettre \u00e0 jour un doc existant.\nPrenez bien soin de v\u00e9rifier que le champ \n_rev\n correspond bien \u00e0 la derni\u00e8re\nr\u00e9vision du document.\n\n\ndatabase = Database(database_url)\ndoc = database.get('chat')\ndoc['message'] = 'hello world'\ndatabase.put(doc)\n\n\n\n\nSupprimer un document\n\n\ndatabase = Database(database_url)\ndoc = database.get('chat')\ndatabase.delete(doc)\n\n\n\n\nEcouter les \u00e9venements de mises \u00e0 jour\n\n\nLa m\u00e9thode \nchanges(regex)\n retourne un stream des documents qui ont \u00e9t\u00e9 modifi\u00e9s, dont le \ndocid\n\nmatch la regexp en parametre.\n\n\ndatabase = Database(database_url)\nfor doc in database.changes('^chat'):\n    print(doc['message'])",
+            "location": "/barrel/python/", 
+            "text": "Librairie Python\n\n\nVous pouvez utiliser la librairie \nbarrel.py\n pour acceder facilement\n\u00e0 une base Barrel.\n\n\nN'oubliez pas d'installer les dependances n\u00e9cessaire:\n\n\n$ pip install requests\n$ pip install sseclient\n\n\n\nOuvrir une base de donn\u00e9e\n\n\nfrom barrel import Database\n\ndatabase_url = \nhttp://192.168.1.89:8080/source\n\ndatabase = Database(database_url)\n\n\n\n\nL'objet \ndatabase\n ainsi cr\u00e9\u00e9 peut etre utilis\u00e9 pour toutes\nles op\u00e9rations sur barrel.\n\n\nLire un document\n\n\nLire la derni\u00e8re version d'un document:\n\n\nfrom barrel import Database\n\ndatabase = Database(database_url)\ndoc = database.get(docid)\n\n\n\n\nCr\u00e9er un document\n\n\nUtilisez la m\u00e9thode \nput\n pour cr\u00e9er ou mettre \u00e0 jour un document.\nN'oubliez pas de bien renseigner le champ \nid\n obligatoire:\n\n\ndatabase = Database(database_url)\ndoc = {'id': 'chat', 'message': 'hello world'}\ndatabase.put(doc)\n\n\n\n\nVous pouvez utiliser \npost\n si vous souhaitez laisser le serveur\nassigner lui-m\u00eame un \nid\n unique:\n\n\ndatabase = Database(database_url)\ndoc = {'message': 'hello world'}\ndatabase.post(doc)\n\n\n\n\nMettre \u00e0 jour un document existant\n\n\nUn simple appel \u00e0 la methode \nput\n permet de mettre \u00e0 jour un doc existant.\nPrenez bien soin de v\u00e9rifier que le champ \n_rev\n correspond bien \u00e0 la derni\u00e8re\nr\u00e9vision du document.\n\n\ndatabase = Database(database_url)\ndoc = database.get('chat')\ndoc['message'] = 'hello world'\ndatabase.put(doc)\n\n\n\n\nSupprimer un document\n\n\ndatabase = Database(database_url)\ndoc = database.get('chat')\ndatabase.delete(doc)\n\n\n\n\nEcouter les \u00e9venements de mises \u00e0 jour\n\n\nLa m\u00e9thode \nchanges(regex)\n retourne un stream des documents qui ont \u00e9t\u00e9 modifi\u00e9s, dont le \ndocid\n\nmatch la regexp en parametre.\n\n\ndatabase = Database(database_url)\nfor doc in database.changes('^chat'):\n    print(doc['message'])", 
             "title": "Python"
-        },
+        }, 
         {
-            "location": "/barrel/python/#librairie-python",
-            "text": "Vous pouvez utiliser la librairie  barrel.py  pour acceder facilement\n\u00e0 une base Barrel.  N'oubliez pas d'installer les dependances n\u00e9cessaire:  $ pip install requests\n$ pip install sseclient",
+            "location": "/barrel/python/#librairie-python", 
+            "text": "Vous pouvez utiliser la librairie  barrel.py  pour acceder facilement\n\u00e0 une base Barrel.  N'oubliez pas d'installer les dependances n\u00e9cessaire:  $ pip install requests\n$ pip install sseclient", 
             "title": "Librairie Python"
-        },
+        }, 
         {
-            "location": "/barrel/python/#ouvrir-une-base-de-donnee",
-            "text": "from barrel import Database\n\ndatabase_url = \"http://192.168.1.89:8080/source\"\ndatabase = Database(database_url)  L'objet  database  ainsi cr\u00e9\u00e9 peut etre utilis\u00e9 pour toutes\nles op\u00e9rations sur barrel.",
+            "location": "/barrel/python/#ouvrir-une-base-de-donnee", 
+            "text": "from barrel import Database\n\ndatabase_url =  http://192.168.1.89:8080/source \ndatabase = Database(database_url)  L'objet  database  ainsi cr\u00e9\u00e9 peut etre utilis\u00e9 pour toutes\nles op\u00e9rations sur barrel.", 
             "title": "Ouvrir une base de donn\u00e9e"
-        },
+        }, 
         {
-            "location": "/barrel/python/#lire-un-document",
-            "text": "Lire la derni\u00e8re version d'un document:  from barrel import Database\n\ndatabase = Database(database_url)\ndoc = database.get(docid)",
+            "location": "/barrel/python/#lire-un-document", 
+            "text": "Lire la derni\u00e8re version d'un document:  from barrel import Database\n\ndatabase = Database(database_url)\ndoc = database.get(docid)", 
             "title": "Lire un document"
-        },
+        }, 
         {
-            "location": "/barrel/python/#creer-un-document",
-            "text": "Utilisez la m\u00e9thode  put  pour cr\u00e9er ou mettre \u00e0 jour un document.\nN'oubliez pas de bien renseigner le champ  id  obligatoire:  database = Database(database_url)\ndoc = {'id': 'chat', 'message': 'hello world'}\ndatabase.put(doc)  Vous pouvez utiliser  post  si vous souhaitez laisser le serveur\nassigner lui-m\u00eame un  id  unique:  database = Database(database_url)\ndoc = {'message': 'hello world'}\ndatabase.post(doc)",
+            "location": "/barrel/python/#creer-un-document", 
+            "text": "Utilisez la m\u00e9thode  put  pour cr\u00e9er ou mettre \u00e0 jour un document.\nN'oubliez pas de bien renseigner le champ  id  obligatoire:  database = Database(database_url)\ndoc = {'id': 'chat', 'message': 'hello world'}\ndatabase.put(doc)  Vous pouvez utiliser  post  si vous souhaitez laisser le serveur\nassigner lui-m\u00eame un  id  unique:  database = Database(database_url)\ndoc = {'message': 'hello world'}\ndatabase.post(doc)", 
             "title": "Cr\u00e9er un document"
-        },
+        }, 
         {
-            "location": "/barrel/python/#mettre-a-jour-un-document-existant",
-            "text": "Un simple appel \u00e0 la methode  put  permet de mettre \u00e0 jour un doc existant.\nPrenez bien soin de v\u00e9rifier que le champ  _rev  correspond bien \u00e0 la derni\u00e8re\nr\u00e9vision du document.  database = Database(database_url)\ndoc = database.get('chat')\ndoc['message'] = 'hello world'\ndatabase.put(doc)",
+            "location": "/barrel/python/#mettre-a-jour-un-document-existant", 
+            "text": "Un simple appel \u00e0 la methode  put  permet de mettre \u00e0 jour un doc existant.\nPrenez bien soin de v\u00e9rifier que le champ  _rev  correspond bien \u00e0 la derni\u00e8re\nr\u00e9vision du document.  database = Database(database_url)\ndoc = database.get('chat')\ndoc['message'] = 'hello world'\ndatabase.put(doc)", 
             "title": "Mettre \u00e0 jour un document existant"
-        },
+        }, 
         {
-            "location": "/barrel/python/#supprimer-un-document",
-            "text": "database = Database(database_url)\ndoc = database.get('chat')\ndatabase.delete(doc)",
+            "location": "/barrel/python/#supprimer-un-document", 
+            "text": "database = Database(database_url)\ndoc = database.get('chat')\ndatabase.delete(doc)", 
             "title": "Supprimer un document"
-        },
+        }, 
         {
-            "location": "/barrel/python/#ecouter-les-evenements-de-mises-a-jour",
-            "text": "La m\u00e9thode  changes(regex)  retourne un stream des documents qui ont \u00e9t\u00e9 modifi\u00e9s, dont le  docid \nmatch la regexp en parametre.  database = Database(database_url)\nfor doc in database.changes('^chat'):\n    print(doc['message'])",
+            "location": "/barrel/python/#ecouter-les-evenements-de-mises-a-jour", 
+            "text": "La m\u00e9thode  changes(regex)  retourne un stream des documents qui ont \u00e9t\u00e9 modifi\u00e9s, dont le  docid \nmatch la regexp en parametre.  database = Database(database_url)\nfor doc in database.changes('^chat'):\n    print(doc['message'])", 
             "title": "Ecouter les \u00e9venements de mises \u00e0 jour"
-        },
+        }, 
         {
-            "location": "/barrel/elixir/",
-            "text": "Librairie Elixir\n\n\nVous pouvez utiliser la librairie \nBarrex.Databas\n pour acceder facilement\n\u00e0 une base Barrel.\n\n\nN'oubliez pas d'installer les dependances n\u00e9cessaire:\n\n\n$ cd clients/elixir\n$ mix deps.get\n$ mix compile\n\n\n\nPour lancer un shell incluant les librairies et dependances:\n\n\n$ iex -S mix\n\n\n\nOuvrir une base de donn\u00e9e\n\n\ndatabase_url \"http://192.168.1.89:8080/source\"\ndb = Barrex.Database.open(database_url)\n\n\n\n\nL'objet \ndb\n ainsi cr\u00e9\u00e9 peut etre utilis\u00e9 pour toutes\nles op\u00e9rations sur barrel.\n\n\nLire un document\n\n\nLire la derni\u00e8re version d'un document:\n\n\ndoc = Barrex.Database.get(\"chat\", db)\nIO.puts doc[\"message\"]\n\n\n\n\nCr\u00e9er un document\n\n\nUtilisez la m\u00e9thode \nput\n pour cr\u00e9er ou mettre \u00e0 jour un document.\nN'oubliez pas de bien renseigner le champ \nid\n obligatoire:\n\n\ndoc = %{\"id\" => \"chat\", \"message\" => \"hello world\"}\nBarrex.Database.put(doc, db)\n\n\n\n\nVous pouvez utiliser \npost\n si vous souhaitez laisser le serveur\nassigner lui-m\u00eame un \nid\n unique:\n\n\ndoc = %{\"message\" => \"hello world\"}\nBarrex.Database.post(doc, db)\n\n\n\n\nMettre \u00e0 jour un document existant\n\n\nUn simple appel \u00e0 la methode \nput\n permet de mettre \u00e0 jour un doc existant.\nPrenez bien soin de v\u00e9rifier que le champ \n_rev\n correspond bien \u00e0 la derni\u00e8re\nr\u00e9vision du document.\n\n\ndoc = Barrex.Database.post(\"chat\", db)\ndoc[\"message\"] = \"hello world\"\nBarrex.Database.put(doc)\n\n\n\n\nSupprimer un document\n\n\ndoc = Barrex.Database.get(\"chat\", db)\nBarrex.Database.delete(doc, db)\n\n\n\n\nEcouter les \u00e9venements de mises \u00e0 jour\n\n\nLa m\u00e9thode \nchanges(db)\n retourne un \nstream\n\ndes documents qui ont \u00e9t\u00e9 modifi\u00e9s.\n\n\ndb = Barrex.Database.open(url)\nBarrex.Database.changes(db)\n  |> Stream.filter(fn(doc) -> doc[\"id\"] == \"chat\" end)\n  |> Stream.map(fn(doc) -> IO.puts doc[\"message\"] end)\n  |> Stream.run",
+            "location": "/barrel/elixir/", 
+            "text": "Librairie Elixir\n\n\nVous pouvez utiliser la librairie \nBarrex.Databas\n pour acceder facilement\n\u00e0 une base Barrel.\n\n\nN'oubliez pas d'installer les dependances n\u00e9cessaire:\n\n\n$ cd clients/elixir\n$ mix deps.get\n$ mix compile\n\n\n\nPour lancer un shell incluant les librairies et dependances:\n\n\n$ iex -S mix\n\n\n\nOuvrir une base de donn\u00e9e\n\n\ndatabase_url \nhttp://192.168.1.89:8080/source\n\ndb = Barrex.Database.open(database_url)\n\n\n\n\nL'objet \ndb\n ainsi cr\u00e9\u00e9 peut etre utilis\u00e9 pour toutes\nles op\u00e9rations sur barrel.\n\n\nLire un document\n\n\nLire la derni\u00e8re version d'un document:\n\n\ndoc = Barrex.Database.get(\nchat\n, db)\nIO.puts doc[\nmessage\n]\n\n\n\n\nCr\u00e9er un document\n\n\nUtilisez la m\u00e9thode \nput\n pour cr\u00e9er ou mettre \u00e0 jour un document.\nN'oubliez pas de bien renseigner le champ \nid\n obligatoire:\n\n\ndoc = %{\nid\n =\n \nchat\n, \nmessage\n =\n \nhello world\n}\nBarrex.Database.put(doc, db)\n\n\n\n\nVous pouvez utiliser \npost\n si vous souhaitez laisser le serveur\nassigner lui-m\u00eame un \nid\n unique:\n\n\ndoc = %{\nmessage\n =\n \nhello world\n}\nBarrex.Database.post(doc, db)\n\n\n\n\nMettre \u00e0 jour un document existant\n\n\nUn simple appel \u00e0 la methode \nput\n permet de mettre \u00e0 jour un doc existant.\nPrenez bien soin de v\u00e9rifier que le champ \n_rev\n correspond bien \u00e0 la derni\u00e8re\nr\u00e9vision du document.\n\n\ndoc = Barrex.Database.post(\nchat\n, db)\ndoc[\nmessage\n] = \nhello world\n\nBarrex.Database.put(doc)\n\n\n\n\nSupprimer un document\n\n\ndoc = Barrex.Database.get(\nchat\n, db)\nBarrex.Database.delete(doc, db)\n\n\n\n\nEcouter les \u00e9venements de mises \u00e0 jour\n\n\nLa m\u00e9thode \nchanges(db)\n retourne un \nstream\n\ndes documents qui ont \u00e9t\u00e9 modifi\u00e9s.\n\n\ndb = Barrex.Database.open(url)\nBarrex.Database.changes(db)\n  |\n Stream.filter(fn(doc) -\n doc[\nid\n] == \nchat\n end)\n  |\n Stream.map(fn(doc) -\n IO.puts doc[\nmessage\n] end)\n  |\n Stream.run", 
             "title": "Elixir"
-        },
+        }, 
         {
-            "location": "/barrel/elixir/#librairie-elixir",
-            "text": "Vous pouvez utiliser la librairie  Barrex.Databas  pour acceder facilement\n\u00e0 une base Barrel.  N'oubliez pas d'installer les dependances n\u00e9cessaire:  $ cd clients/elixir\n$ mix deps.get\n$ mix compile  Pour lancer un shell incluant les librairies et dependances:  $ iex -S mix",
+            "location": "/barrel/elixir/#librairie-elixir", 
+            "text": "Vous pouvez utiliser la librairie  Barrex.Databas  pour acceder facilement\n\u00e0 une base Barrel.  N'oubliez pas d'installer les dependances n\u00e9cessaire:  $ cd clients/elixir\n$ mix deps.get\n$ mix compile  Pour lancer un shell incluant les librairies et dependances:  $ iex -S mix", 
             "title": "Librairie Elixir"
-        },
+        }, 
         {
-            "location": "/barrel/elixir/#ouvrir-une-base-de-donnee",
-            "text": "database_url \"http://192.168.1.89:8080/source\"\ndb = Barrex.Database.open(database_url)  L'objet  db  ainsi cr\u00e9\u00e9 peut etre utilis\u00e9 pour toutes\nles op\u00e9rations sur barrel.",
+            "location": "/barrel/elixir/#ouvrir-une-base-de-donnee", 
+            "text": "database_url  http://192.168.1.89:8080/source \ndb = Barrex.Database.open(database_url)  L'objet  db  ainsi cr\u00e9\u00e9 peut etre utilis\u00e9 pour toutes\nles op\u00e9rations sur barrel.", 
             "title": "Ouvrir une base de donn\u00e9e"
-        },
+        }, 
         {
-            "location": "/barrel/elixir/#lire-un-document",
-            "text": "Lire la derni\u00e8re version d'un document:  doc = Barrex.Database.get(\"chat\", db)\nIO.puts doc[\"message\"]",
+            "location": "/barrel/elixir/#lire-un-document", 
+            "text": "Lire la derni\u00e8re version d'un document:  doc = Barrex.Database.get( chat , db)\nIO.puts doc[ message ]", 
             "title": "Lire un document"
-        },
+        }, 
         {
-            "location": "/barrel/elixir/#creer-un-document",
-            "text": "Utilisez la m\u00e9thode  put  pour cr\u00e9er ou mettre \u00e0 jour un document.\nN'oubliez pas de bien renseigner le champ  id  obligatoire:  doc = %{\"id\" => \"chat\", \"message\" => \"hello world\"}\nBarrex.Database.put(doc, db)  Vous pouvez utiliser  post  si vous souhaitez laisser le serveur\nassigner lui-m\u00eame un  id  unique:  doc = %{\"message\" => \"hello world\"}\nBarrex.Database.post(doc, db)",
+            "location": "/barrel/elixir/#creer-un-document", 
+            "text": "Utilisez la m\u00e9thode  put  pour cr\u00e9er ou mettre \u00e0 jour un document.\nN'oubliez pas de bien renseigner le champ  id  obligatoire:  doc = %{ id  =   chat ,  message  =   hello world }\nBarrex.Database.put(doc, db)  Vous pouvez utiliser  post  si vous souhaitez laisser le serveur\nassigner lui-m\u00eame un  id  unique:  doc = %{ message  =   hello world }\nBarrex.Database.post(doc, db)", 
             "title": "Cr\u00e9er un document"
-        },
+        }, 
         {
-            "location": "/barrel/elixir/#mettre-a-jour-un-document-existant",
-            "text": "Un simple appel \u00e0 la methode  put  permet de mettre \u00e0 jour un doc existant.\nPrenez bien soin de v\u00e9rifier que le champ  _rev  correspond bien \u00e0 la derni\u00e8re\nr\u00e9vision du document.  doc = Barrex.Database.post(\"chat\", db)\ndoc[\"message\"] = \"hello world\"\nBarrex.Database.put(doc)",
+            "location": "/barrel/elixir/#mettre-a-jour-un-document-existant", 
+            "text": "Un simple appel \u00e0 la methode  put  permet de mettre \u00e0 jour un doc existant.\nPrenez bien soin de v\u00e9rifier que le champ  _rev  correspond bien \u00e0 la derni\u00e8re\nr\u00e9vision du document.  doc = Barrex.Database.post( chat , db)\ndoc[ message ] =  hello world \nBarrex.Database.put(doc)", 
             "title": "Mettre \u00e0 jour un document existant"
-        },
+        }, 
         {
-            "location": "/barrel/elixir/#supprimer-un-document",
-            "text": "doc = Barrex.Database.get(\"chat\", db)\nBarrex.Database.delete(doc, db)",
+            "location": "/barrel/elixir/#supprimer-un-document", 
+            "text": "doc = Barrex.Database.get( chat , db)\nBarrex.Database.delete(doc, db)", 
             "title": "Supprimer un document"
-        },
+        }, 
         {
-            "location": "/barrel/elixir/#ecouter-les-evenements-de-mises-a-jour",
-            "text": "La m\u00e9thode  changes(db)  retourne un  stream \ndes documents qui ont \u00e9t\u00e9 modifi\u00e9s.  db = Barrex.Database.open(url)\nBarrex.Database.changes(db)\n  |> Stream.filter(fn(doc) -> doc[\"id\"] == \"chat\" end)\n  |> Stream.map(fn(doc) -> IO.puts doc[\"message\"] end)\n  |> Stream.run",
+            "location": "/barrel/elixir/#ecouter-les-evenements-de-mises-a-jour", 
+            "text": "La m\u00e9thode  changes(db)  retourne un  stream \ndes documents qui ont \u00e9t\u00e9 modifi\u00e9s.  db = Barrex.Database.open(url)\nBarrex.Database.changes(db)\n  |  Stream.filter(fn(doc) -  doc[ id ] ==  chat  end)\n  |  Stream.map(fn(doc) -  IO.puts doc[ message ] end)\n  |  Stream.run", 
             "title": "Ecouter les \u00e9venements de mises \u00e0 jour"
-        },
+        }, 
         {
-            "location": "/barrel/admin/",
-            "text": "Administration de Barrel\n\n\nCette page pr\u00e9sente quelques commandes de base pour administr\u00e9e\nla base de donn\u00e9es en cas de probl\u00e8mes.\n\n\nCes commandes n\u00e9cessite un acc\u00e8s SSH au serveur. Demandez \u00e0 Bernard\nqu'il vous communique ces acc\u00e8s si vous pensez que vous en avez besoin.\n\n\nD\u00e9marrer le service:\n\n\n$ sudo systemctl start barrel.service\n\n\n\nConsulter le log du service:\n\n\n$ journalctl -u barrel.service\n\n\n\nStatus du service:\n\n\n$ systemctl status barrel.service\n\n\n\nInstallation du service systemd\n\n\n$ cd /etc/systemd/system\n$ sudo cp /home/bernard/barrel/barrel-aof17/admin/barrel.service\n$ sudo systemctl enable barrel.service\n$ sudo systemctl start barrel.service\n$ systemctl status barrel.service\n\n\n\nConnection du serveur au wifi\n\n\nSource: https://doc.ubuntu-fr.org/wifi\n\n\nLister les p\u00e9riph\u00e9riques r\u00e9seaux supportant le Wifi:\n\n\n$ iw dev\n\n\n\nD\u00e9marrer le reseau sur \nwlp2s0\n\n\n$ sudo ifconfig wlp2s0 up\n\n\n\nLister les r\u00e9seaux visibles sur l'interface \nwlp2s0\n:\n\n\n$ sudo iw dev wlp2s0 scan | grep SSID\n\n\n\nScan de l'IP du serveur barrel\n\n\n$ sudo nmap -sS -p 22 192.168.1.0/24 | grep barrel",
+            "location": "/barrel/admin/", 
+            "text": "Administration de Barrel\n\n\nCette page pr\u00e9sente quelques commandes de base pour administr\u00e9e\nla base de donn\u00e9es en cas de probl\u00e8mes.\n\n\nCes commandes n\u00e9cessite un acc\u00e8s SSH au serveur. Demandez \u00e0 Bernard\nqu'il vous communique ces acc\u00e8s si vous pensez que vous en avez besoin.\n\n\nD\u00e9marrer le service:\n\n\n$ sudo systemctl start barrel.service\n\n\n\nConsulter le log du service:\n\n\n$ journalctl -u barrel.service\n\n\n\nStatus du service:\n\n\n$ systemctl status barrel.service\n\n\n\nInstallation du service systemd\n\n\n$ cd /etc/systemd/system\n$ sudo cp /home/bernard/barrel/barrel-aof17/admin/barrel.service\n$ sudo systemctl enable barrel.service\n$ sudo systemctl start barrel.service\n$ systemctl status barrel.service\n\n\n\nConnection du serveur au wifi\n\n\nSource: https://doc.ubuntu-fr.org/wifi\n\n\nLister les p\u00e9riph\u00e9riques r\u00e9seaux supportant le Wifi:\n\n\n$ iw dev\n\n\n\nD\u00e9marrer le reseau sur \nwlp2s0\n\n\n$ sudo ifconfig wlp2s0 up\n\n\n\nLister les r\u00e9seaux visibles sur l'interface \nwlp2s0\n:\n\n\n$ sudo iw dev wlp2s0 scan | grep SSID\n\n\n\nScan de l'IP du serveur barrel\n\n\n$ sudo nmap -sS -p 22 192.168.1.0/24 | grep barrel", 
             "title": "Admin"
-        },
+        }, 
         {
-            "location": "/barrel/admin/#administration-de-barrel",
-            "text": "Cette page pr\u00e9sente quelques commandes de base pour administr\u00e9e\nla base de donn\u00e9es en cas de probl\u00e8mes.  Ces commandes n\u00e9cessite un acc\u00e8s SSH au serveur. Demandez \u00e0 Bernard\nqu'il vous communique ces acc\u00e8s si vous pensez que vous en avez besoin.  D\u00e9marrer le service:  $ sudo systemctl start barrel.service  Consulter le log du service:  $ journalctl -u barrel.service  Status du service:  $ systemctl status barrel.service",
+            "location": "/barrel/admin/#administration-de-barrel", 
+            "text": "Cette page pr\u00e9sente quelques commandes de base pour administr\u00e9e\nla base de donn\u00e9es en cas de probl\u00e8mes.  Ces commandes n\u00e9cessite un acc\u00e8s SSH au serveur. Demandez \u00e0 Bernard\nqu'il vous communique ces acc\u00e8s si vous pensez que vous en avez besoin.  D\u00e9marrer le service:  $ sudo systemctl start barrel.service  Consulter le log du service:  $ journalctl -u barrel.service  Status du service:  $ systemctl status barrel.service", 
             "title": "Administration de Barrel"
-        },
+        }, 
         {
-            "location": "/barrel/admin/#installation-du-service-systemd",
-            "text": "$ cd /etc/systemd/system\n$ sudo cp /home/bernard/barrel/barrel-aof17/admin/barrel.service\n$ sudo systemctl enable barrel.service\n$ sudo systemctl start barrel.service\n$ systemctl status barrel.service",
+            "location": "/barrel/admin/#installation-du-service-systemd", 
+            "text": "$ cd /etc/systemd/system\n$ sudo cp /home/bernard/barrel/barrel-aof17/admin/barrel.service\n$ sudo systemctl enable barrel.service\n$ sudo systemctl start barrel.service\n$ systemctl status barrel.service", 
             "title": "Installation du service systemd"
-        },
+        }, 
         {
-            "location": "/barrel/admin/#connection-du-serveur-au-wifi",
-            "text": "Source: https://doc.ubuntu-fr.org/wifi  Lister les p\u00e9riph\u00e9riques r\u00e9seaux supportant le Wifi:  $ iw dev  D\u00e9marrer le reseau sur  wlp2s0  $ sudo ifconfig wlp2s0 up  Lister les r\u00e9seaux visibles sur l'interface  wlp2s0 :  $ sudo iw dev wlp2s0 scan | grep SSID",
+            "location": "/barrel/admin/#connection-du-serveur-au-wifi", 
+            "text": "Source: https://doc.ubuntu-fr.org/wifi  Lister les p\u00e9riph\u00e9riques r\u00e9seaux supportant le Wifi:  $ iw dev  D\u00e9marrer le reseau sur  wlp2s0  $ sudo ifconfig wlp2s0 up  Lister les r\u00e9seaux visibles sur l'interface  wlp2s0 :  $ sudo iw dev wlp2s0 scan | grep SSID", 
             "title": "Connection du serveur au wifi"
-        },
+        }, 
         {
-            "location": "/barrel/admin/#scan-de-lip-du-serveur-barrel",
-            "text": "$ sudo nmap -sS -p 22 192.168.1.0/24 | grep barrel",
+            "location": "/barrel/admin/#scan-de-lip-du-serveur-barrel", 
+            "text": "$ sudo nmap -sS -p 22 192.168.1.0/24 | grep barrel", 
             "title": "Scan de l'IP du serveur barrel"
-        },
+        }, 
         {
-            "location": "/apropos/",
-            "text": "A propos de ce serveur\n\n\nIl vous est mis \u00e0 disposition pendant la dur\u00e9e de l'Agile Open par Bernard Notarianni.\nIl est avant tout d\u00e9di\u00e9 \u00e0 Barrel, mais vous pouvez l'utiliser pour d'autres usages si\nvous  le souhaitez.\n\n\nEn cas de question, contactez Bernard de vive voix, ou par SMS.",
+            "location": "/apropos/", 
+            "text": "A propos de ce serveur\n\n\nIl vous est mis \u00e0 disposition pendant la dur\u00e9e de l'Agile Open par Bernard Notarianni.\nIl est avant tout d\u00e9di\u00e9 \u00e0 Barrel, mais vous pouvez l'utiliser pour d'autres usages si\nvous  le souhaitez.\n\n\nEn cas de question, contactez Bernard de vive voix, ou par SMS.", 
             "title": "A propos"
-        },
+        }, 
         {
-            "location": "/apropos/#a-propos-de-ce-serveur",
-            "text": "Il vous est mis \u00e0 disposition pendant la dur\u00e9e de l'Agile Open par Bernard Notarianni.\nIl est avant tout d\u00e9di\u00e9 \u00e0 Barrel, mais vous pouvez l'utiliser pour d'autres usages si\nvous  le souhaitez.  En cas de question, contactez Bernard de vive voix, ou par SMS.",
+            "location": "/apropos/#a-propos-de-ce-serveur", 
+            "text": "Il vous est mis \u00e0 disposition pendant la dur\u00e9e de l'Agile Open par Bernard Notarianni.\nIl est avant tout d\u00e9di\u00e9 \u00e0 Barrel, mais vous pouvez l'utiliser pour d'autres usages si\nvous  le souhaitez.  En cas de question, contactez Bernard de vive voix, ou par SMS.", 
             "title": "A propos de ce serveur"
         }
     ]
