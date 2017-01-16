@@ -74,7 +74,6 @@ database.delete(doc)
 
 ## Ecouter les évenements de mises à jour
 
-
 La méthode `changes(regex)` retourne un stream des documents qui ont été modifiés, dont le `docid`
 match la regexp en parametre.
 
