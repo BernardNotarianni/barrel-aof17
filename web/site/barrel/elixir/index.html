@@ -76,13 +76,7 @@
                         
                             
 <li >
-    <a href="../concepts/">Concepts</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../patterns/">Patterns</a>
+    <a href="../rest/">API Rest</a>
 </li>
 
                         
@@ -95,18 +89,6 @@
                             
 <li class="active">
     <a href="./">Elixir</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../javascript/">Javascript</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../ruby/">Ruby</a>
 </li>
 
                         
@@ -142,7 +124,7 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../javascript/">
+                        <a rel="prev" href="../admin/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -158,14 +140,91 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#exemples-elixir">Exemples Elixir</a></li>
+        <li class="first-level active"><a href="#librairie-elixir">Librairie Elixir</a></li>
+        
+            <li class="second-level"><a href="#ouvrir-une-base-de-donnee">Ouvrir une base de donnée</a></li>
+            
+        
+            <li class="second-level"><a href="#lire-un-document">Lire un document</a></li>
+            
+        
+            <li class="second-level"><a href="#creer-un-document">Créer un document</a></li>
+            
+        
+            <li class="second-level"><a href="#mettre-a-jour-un-document-existant">Mettre à jour un document existant</a></li>
+            
+        
+            <li class="second-level"><a href="#supprimer-un-document">Supprimer un document</a></li>
+            
+        
+            <li class="second-level"><a href="#ecouter-les-evenements-de-mises-a-jour">Ecouter les évenements de mises à jour</a></li>
+            
         
     
     </ul>
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="exemples-elixir">Exemples Elixir</h1></div>
+<h1 id="librairie-elixir">Librairie Elixir</h1>
+<p>Vous pouvez utiliser la librairie <a href="../../git/?p=barrel-aof17.git/.git;a=blob;f=clients/elixir/lib/barrex.ex"><code>Barrex.Databas</code></a> pour acceder facilement
+à une base Barrel.</p>
+<p>N'oubliez pas d'installer les dependances nécessaire:</p>
+<pre><code>$ cd clients/elixir
+$ mix deps.get
+$ mix compile
+</code></pre>
+<p>Pour lancer un shell incluant les librairies et dependances:</p>
+<pre><code>$ iex -S mix
+</code></pre>
+<h2 id="ouvrir-une-base-de-donnee">Ouvrir une base de donnée</h2>
+<pre><code class="elixir">database_url &quot;http://192.168.1.89:8080/source&quot;
+db = Barrex.Database.open(database_url)
+</code></pre>
+
+<p>L'objet <code>db</code> ainsi créé peut etre utilisé pour toutes
+les opérations sur barrel.</p>
+<h2 id="lire-un-document">Lire un document</h2>
+<p>Lire la dernière version d'un document:</p>
+<pre><code class="elixir">doc = Barrex.Database.get(&quot;chat&quot;, db)
+IO.puts doc[&quot;message&quot;]
+</code></pre>
+
+<h2 id="creer-un-document">Créer un document</h2>
+<p>Utilisez la méthode <code>put</code> pour créer ou mettre à jour un document.
+N'oubliez pas de bien renseigner le champ <code>id</code> obligatoire:</p>
+<pre><code class="elixir">doc = %{&quot;id&quot; =&gt; &quot;chat&quot;, &quot;message&quot; =&gt; &quot;hello world&quot;}
+Barrex.Database.put(doc, db)
+</code></pre>
+
+<p>Vous pouvez utiliser <code>post</code> si vous souhaitez laisser le serveur
+assigner lui-même un <code>id</code> unique:</p>
+<pre><code class="elixir">doc = %{&quot;message&quot; =&gt; &quot;hello world&quot;}
+Barrex.Database.post(doc, db)
+</code></pre>
+
+<h2 id="mettre-a-jour-un-document-existant">Mettre à jour un document existant</h2>
+<p>Un simple appel à la methode <code>put</code> permet de mettre à jour un doc existant.
+Prenez bien soin de vérifier que le champ <code>_rev</code> correspond bien à la dernière
+révision du document.</p>
+<pre><code class="elixir">doc = Barrex.Database.post(&quot;chat&quot;, db)
+doc[&quot;message&quot;] = &quot;hello world&quot;
+Barrex.Database.put(doc)
+</code></pre>
+
+<h2 id="supprimer-un-document">Supprimer un document</h2>
+<pre><code class="elixir">doc = Barrex.Database.get(&quot;chat&quot;, db)
+Barrex.Database.delete(doc, db)
+</code></pre>
+
+<h2 id="ecouter-les-evenements-de-mises-a-jour">Ecouter les évenements de mises à jour</h2>
+<p>La méthode <code>changes(db)</code> retourne un <a href="https://hexdocs.pm/elixir/Stream">stream</a>
+des documents qui ont été modifiés.</p>
+<pre><code class="elixir">db = Barrex.Database.open(url)
+Barrex.Database.changes(db)
+  |&gt; Stream.filter(fn(doc) -&gt; doc[&quot;id&quot;] == &quot;chat&quot; end)
+  |&gt; Stream.map(fn(doc) -&gt; IO.puts doc[&quot;message&quot;] end)
+  |&gt; Stream.run
+</code></pre></div>
         
     </div>
 

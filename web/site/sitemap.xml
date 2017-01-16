@@ -4,7 +4,7 @@
     
     <url>
      <loc>/</loc>
-     <lastmod>2017-01-14</lastmod>
+     <lastmod>2017-01-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -12,44 +12,26 @@
     
         
     <url>
-     <loc>/barrel/concepts/</loc>
-     <lastmod>2017-01-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/barrel/patterns/</loc>
-     <lastmod>2017-01-14</lastmod>
+     <loc>/barrel/rest/</loc>
+     <lastmod>2017-01-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/barrel/python/</loc>
-     <lastmod>2017-01-14</lastmod>
+     <lastmod>2017-01-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/barrel/elixir/</loc>
-     <lastmod>2017-01-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/barrel/javascript/</loc>
-     <lastmod>2017-01-14</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-        
-    <url>
-     <loc>/barrel/ruby/</loc>
-     <lastmod>2017-01-14</lastmod>
+     <lastmod>2017-01-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
     <url>
      <loc>/barrel/admin/</loc>
-     <lastmod>2017-01-14</lastmod>
+     <lastmod>2017-01-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -58,7 +40,7 @@
     
     <url>
      <loc>/apropos/</loc>
-     <lastmod>2017-01-14</lastmod>
+     <lastmod>2017-01-16</lastmod>
      <changefreq>daily</changefreq>
     </url>
     

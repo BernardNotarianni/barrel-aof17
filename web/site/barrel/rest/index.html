@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">   
     <link rel="shortcut icon" href="../../img/favicon.ico">
 
-    <title>Concepts - Barrel-DB pour aof17</title>
+    <title>API Rest - Barrel-DB pour aof17</title>
 
     <link href="../../css/bootstrap-custom.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
@@ -76,13 +76,7 @@
                         
                             
 <li class="active">
-    <a href="./">Concepts</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../patterns/">Patterns</a>
+    <a href="./">API Rest</a>
 </li>
 
                         
@@ -95,18 +89,6 @@
                             
 <li >
     <a href="../elixir/">Elixir</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../javascript/">Javascript</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../ruby/">Ruby</a>
 </li>
 
                         
@@ -142,7 +124,7 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="../patterns/">
+                        <a rel="prev" href="../python/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -166,7 +148,32 @@
             <li class="second-level"><a href="#gestion-des-conflits-utiliser-les-revisions">Gestion des conflits: utiliser les révisions</a></li>
             
         
-            <li class="second-level"><a href="#ecouter-les-evenements-de-mises-a-jour">Ecouter les évenements de mises à jour</a></li>
+    
+        <li class="first-level "><a href="#api-rest">API REST</a></li>
+        
+            <li class="second-level"><a href="#header-http">Header HTTP</a></li>
+            
+        
+            <li class="second-level"><a href="#get-storedocid">GET /&lt;store&gt;/&lt;docid&gt;</a></li>
+            
+        
+            <li class="second-level"><a href="#post-store">POST /&lt;store&gt;</a></li>
+            
+        
+            <li class="second-level"><a href="#put-storedocid">PUT /&lt;store&gt;/&lt;docid&gt;</a></li>
+            
+                <li class="third-level"><a href="#creation-dun-document">Création d'un document</a></li>
+            
+                <li class="third-level"><a href="#mise-a-jour-dun-document-existant">Mise à jour d'un document existant</a></li>
+            
+        
+            <li class="second-level"><a href="#delete-storedocid">DELETE /&lt;store&gt;/&lt;docid&gt;</a></li>
+            
+        
+            <li class="second-level"><a href="#get-store_all_docs">GET /&lt;store&gt;/_all_docs</a></li>
+            
+        
+            <li class="second-level"><a href="#get-store_changesfeedeventsource">GET /&lt;store&gt;/_changes?feed=eventsource</a></li>
             
         
     
@@ -236,7 +243,126 @@ de retrouver la denière révision et réassyer jusqu'à ce que cela passe.</p>
 4 - Si vous avez un code erreur 409, reprendre à l'épate 1
 </code></pre>
 
-<h2 id="ecouter-les-evenements-de-mises-a-jour">Ecouter les évenements de mises à jour</h2></div>
+<h1 id="api-rest">API REST</h1>
+<h2 id="header-http">Header HTTP</h2>
+<p>Pour toute les requêtes HTTP, inclure dans le header <code>Content-Type: application/json</code></p>
+<p>Il n'y pas de filtre d'autorisation: tout le monde a accès à tout sur l'API HTTP Rest de ce serveur.</p>
+<h2 id="get-storedocid"><code>GET /&lt;store&gt;/&lt;docid&gt;</code></h2>
+<p>Request:</p>
+<pre><code class="json">GET /source/chat
+</code></pre>
+
+<p>Reply:</p>
+<pre><code class="json">{
+  &quot;_rev&quot;: &quot;1-435823fe88aa55869cba856df1a2d570&quot;,
+  &quot;id&quot;: &quot;chat&quot;,
+  &quot;name&quot;: &quot;tom&quot;
+}
+</code></pre>
+
+<h2 id="post-store"><code>POST /&lt;store&gt;</code></h2>
+<p>Request:</p>
+<pre><code class="json">POST /source
+{
+  &quot;name&quot;: &quot;tom&quot;
+}
+</code></pre>
+
+<p>Reply:</p>
+<pre><code class="json">{
+  &quot;id&quot;: &quot;98d5b5c8-af18-453a-bfb9-b0c6ca0da19b&quot;,
+  &quot;ok&quot;: true,
+  &quot;rev&quot;: &quot;1-ddffb068a15dda0cf75c2e9223e375fa&quot;
+}
+</code></pre>
+
+<h2 id="put-storedocid"><code>PUT /&lt;store&gt;/&lt;docid&gt;</code></h2>
+<h3 id="creation-dun-document">Création d'un document</h3>
+<p>Il faut indiquer le même <em>docid</em> dans l'URL de la requete et dans le champ <code>id</code> du document JSON.</p>
+<pre><code class="json">PUT /source/chat
+{
+  &quot;id&quot;: &quot;chat&quot;,
+  &quot;name&quot;: &quot;tom&quot;
+}
+</code></pre>
+
+<p>Reply:</p>
+<pre><code class="json">{
+  &quot;id&quot;: &quot;chat&quot;,
+  &quot;ok&quot;: true,
+  &quot;rev&quot;: &quot;1-435823fe88aa55869cba856df1a2d570&quot;
+}
+</code></pre>
+
+<h3 id="mise-a-jour-dun-document-existant">Mise à jour d'un document existant</h3>
+<p>Pour mettre à jour un document, il faut indiquer précisement le dernière révision dans le champ <code>_rev</code>.</p>
+<pre><code class="json">PUT /source/chat
+{
+  &quot;_rev&quot;: &quot;1-435823fe88aa55869cba856df1a2d570&quot;,
+  &quot;id&quot;: &quot;chat&quot;,
+  &quot;name&quot;: &quot;Grumpy Cat&quot;
+}
+</code></pre>
+
+<p>Reply:</p>
+<pre><code class="json">{
+  &quot;id&quot;: &quot;chat&quot;,
+  &quot;ok&quot;: true,
+  &quot;rev&quot;: &quot;2-8cfbb3023f94ddd1f1bf6ee7a9ba2019&quot;
+}
+</code></pre>
+
+<h2 id="delete-storedocid"><code>DELETE /&lt;store&gt;/&lt;docid&gt;</code></h2>
+<p>Pour supprimer un document, indiquer dans le parametre d'URL <code>rev</code> la dernière révision.</p>
+<pre><code class="text">DELETE /source/chat?rev=2-8cfbb3023f94ddd1f1bf6ee7a9ba2019
+</code></pre>
+
+<p>Reply:</p>
+<pre><code class="json">{
+  &quot;id&quot;: &quot;chat&quot;,
+  &quot;ok&quot;: true,
+  &quot;rev&quot;: &quot;3-8a17b246465973518019470d6b4540fd&quot;
+}
+</code></pre>
+
+<h2 id="get-store_all_docs"><code>GET /&lt;store&gt;/_all_docs</code></h2>
+<p>Liste tous les documents disponibles dans un store:</p>
+<pre><code class="text">GET /source/_all_docs
+</code></pre>
+
+<p>Reply:</p>
+<pre><code class="json">{
+  &quot;offset&quot;: 0,
+  &quot;rows&quot;: [
+    {
+      &quot;id&quot;: &quot;chat&quot;,
+      &quot;rev&quot;: &quot;3-8a17b246465973518019470d6b4540fd&quot;
+    },
+    {
+      &quot;id&quot;: &quot;98d5b5c8-af18-453a-bfb9-b0c6ca0da19b&quot;,
+      &quot;rev&quot;: &quot;1-ddffb068a15dda0cf75c2e9223e375fa&quot;
+    }
+  ],
+  &quot;total_rows&quot;: 2
+}
+</code></pre>
+
+<h2 id="get-store_changesfeedeventsource"><code>GET /&lt;store&gt;/_changes?feed=eventsource</code></h2>
+<p>Informe de toutes les modifications de doducment d'un store sous la forme de
+<a href="https://www.w3.org/TR/eventsource/">Server Sent Events</a> HTTP.</p>
+<pre><code class="text">GET /source/_all_docs
+</code></pre>
+
+<p>Reply:</p>
+<pre><code class="json">id: 546386C4D14C0
+data: {&quot;last_seq&quot;:7,&quot;results&quot;:[]}
+
+id: 546386CDC2CE0
+data: {&quot;last_seq&quot;:8,&quot;results&quot;:[{&quot;changes&quot;:[&quot;1-6a5f1ebdc7e3b20430b8b834dd505e32&quot;],&quot;id&quot;:&quot;51b38616-b2fe-4772-9dbe-6c06575961d7&quot;,&quot;seq&quot;:8}]}
+
+id: 546386D507634
+data: {&quot;last_seq&quot;:9,&quot;results&quot;:[{&quot;changes&quot;:[&quot;1-88ba268c6c1ba33270411ac6666a7fe1&quot;],&quot;id&quot;:&quot;2285c50e-c30a-4aeb-ace8-10c5befb09bc&quot;,&quot;seq&quot;:9}]}
+</code></pre></div>
         
     </div>
 

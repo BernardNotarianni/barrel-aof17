@@ -76,13 +76,7 @@
                         
                             
 <li >
-    <a href="barrel/concepts/">Concepts</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="barrel/patterns/">Patterns</a>
+    <a href="barrel/rest/">API Rest</a>
 </li>
 
                         
@@ -95,18 +89,6 @@
                             
 <li >
     <a href="barrel/elixir/">Elixir</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="barrel/javascript/">Javascript</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="barrel/ruby/">Ruby</a>
 </li>
 
                         
@@ -142,7 +124,7 @@
                         </a>
                     </li>
                     <li >
-                        <a rel="prev" href="barrel/concepts/">
+                        <a rel="prev" href="barrel/rest/">
                             Next <i class="fa fa-arrow-right"></i>
                         </a>
                     </li>
@@ -160,6 +142,18 @@
     
         <li class="first-level active"><a href="#bienvenue-sur-barrel-db">Bienvenue sur Barrel-DB!</a></li>
         
+            <li class="second-level"><a href="#jouer-directement-sur-ce-serveur">Jouer directement sur ce serveur</a></li>
+            
+        
+            <li class="second-level"><a href="#jouer-depuis-votre-ordinateur">Jouer depuis votre ordinateur</a></li>
+            
+        
+            <li class="second-level"><a href="#acceder-aux-storesbases-de-donnees-barrel">Acceder aux stores/bases de données barrel</a></li>
+            
+        
+            <li class="second-level"><a href="#quelques-liens-utiles">Quelques liens utiles</a></li>
+            
+        
     
     </ul>
 </div></div>
@@ -167,9 +161,91 @@
 
 <h1 id="bienvenue-sur-barrel-db">Bienvenue sur Barrel-DB!</h1>
 <p>Ce serveur est à votre disposition pour jouer avec Barrel-DB.</p>
-<p>Pour commencer, je vous recommande de prendre connaissance des <a href="barrel/concepts/">concepts</a> de barrel-db.</p>
+<p>Vous pouvez utiliser Barrel en utilisant une des 3 API suivantes:</p>
 <ul>
-<li>La page swagger pour acceder directement à l'API REST: <a href="./api-docs/index.html">/api-docs/index.html</a></li>
+<li><a href="barrel/rest/">Une API REST standard</a></li>
+<li><a href="barrel/python/">Une librairie Python</a></li>
+<li><a href="barrel/elixir/">Une librairie Elixir</a></li>
+</ul>
+<p>Ces API sont relativement simples et peuvent éventuellement servir de modèle
+si vous souhaitez implémenter une librairie client pour votre langage préféré
+(Ruby, JS, F#, Haskell, Elm, PHP etc..)</p>
+<p>N'hésitez pas à contribuer et nous tenir informés pendant ou après l'Agile Open :-)</p>
+<h2 id="jouer-directement-sur-ce-serveur">Jouer directement sur ce serveur</h2>
+<p>Vous pouvez vous connecter en SSH sur ce serveur en utilisant le compte d'invité:</p>
+<pre><code>Login: aof
+Password: aof
+</code></pre>
+<p>Pour tester le chat, vous pouvez dans un terminal lancer le chat Python:</p>
+<pre><code class="sh">$ cd barrel-aof17/clients/python
+$ python chat.py
+</code></pre>
+
+<p>Puis dans un autre terminal lancer le chat Elixir:</p>
+<pre><code class="sh">$ cd barrel-aof17/clients/elixir
+$ iex -S mix
+&gt; Barrex.Chat.receiver()
+</code></pre>
+
+<p>Enfin, tapez quelques messages dans le chat python pour les voir apparaitre en temps réel
+dans le chat Elixir :-)</p>
+<h2 id="jouer-depuis-votre-ordinateur">Jouer depuis votre ordinateur</h2>
+<p>Le plus simple est de cloner le repo git contenant les exemples.</p>
+<p>Cloner le <a href="https://github.com/BernardNotarianni/barrel-aof17">repo original github</a>:</p>
+<pre><code>$ git clone https://github.com/BernardNotarianni/barrel-aof17.git
+</code></pre>
+<p>Cloner le mirroir disponible sur ce serveur, pour l'utilisateur <code>aof</code>:</p>
+<pre><code>$ git clone aof@&lt;IP de ce serveur&gt;:/home/aof/barrel-aof17
+</code></pre>
+<p>Le mot de passe de l'utilisateur <code>aof</code> est <code>aof</code>.</p>
+<p>Par exemple sur une machine Windows:</p>
+<pre><code class="text">C:\Users\berna&gt;git clone aof@192.168.1.89:/home/aof/barrel-aof17
+Cloning into 'barrel-aof17'...
+The authenticity of host '192.168.1.89 (192.168.1.89)' can't be established.
+ECDSA key fingerprint is SHA256:ZFFeMsqka8jJeMWptx7dAM3cbp24dpTzVIT/E2VIGso.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added '192.168.1.89' (ECDSA) to the list of known hosts.
+aof@192.168.1.89's password: &lt;entrez le mot de passe aof&gt;
+remote: Counting objects: 255, done.
+remote: Compressing objects: 100% (175/175), done.
+rRemote: Total 255 (delta 60), reused 247 (delta 57)
+Receiving objects: 100% (255/255), 1.40 MiB | 2.61 MiB/s, done.
+Resolving deltas: 100% (60/60), done.
+Checking connectivity... done.
+
+C:\Users\berna&gt;dir barrel-aof17
+ Le volume dans le lecteur C n’a pas de nom.
+ Le numéro de série du volume est 52A8-97FB
+
+ Répertoire de C:\Users\berna\barrel-aof17
+
+16/01/2017  16:21    &lt;DIR&gt;          .
+16/01/2017  16:21    &lt;DIR&gt;          ..
+16/01/2017  16:21    &lt;DIR&gt;          admin
+16/01/2017  16:21    &lt;DIR&gt;          clients
+16/01/2017  16:21            11 357 LICENSE
+16/01/2017  16:21                94 README.md
+16/01/2017  16:21    &lt;DIR&gt;          web
+               2 fichier(s)           11 451 octets
+               5 Rép(s)  20 346 445 824 octets libres
+
+C:\Users\berna&gt;
+</code></pre>
+
+<h2 id="acceder-aux-storesbases-de-donnees-barrel">Acceder aux stores/bases de données barrel</h2>
+<p>Ce serveur contient une instance de barrel par défaut, configuré sur le <strong>port 8080</strong>.
+Celcui est configuré avec deux store (base de données) par défaut:</p>
+<ul>
+<li>source</li>
+<li>targedb</li>
+</ul>
+<p>Vous pouvez par exemple faire un <code>HTTP GET /_stores</code> pour récupérer la liste des stores disponibles.</p>
+<h2 id="quelques-liens-utiles">Quelques liens utiles</h2>
+<ul>
+<li>L'API REST de Barrel est disponible sur ce serveur sur le port 8080</li>
+<li>Un swagger est disponible sur ce serveur (port 8080) sur l'url <code>/api-docs</code></li>
+<li>Un wiki est disponible sur le port 8001 de ce serveur</li>
+<li>Une <a href="./downloads">page de download</a> avec quelques utilitaires</li>
 </ul></div>
         
     </div>
@@ -223,5 +299,5 @@
 
 <!--
 MkDocs version : 0.16.1
-Build Date UTC : 2017-01-14 16:49:56
+Build Date UTC : 2017-01-16 18:41:19
 -->

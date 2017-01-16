@@ -76,13 +76,7 @@
                         
                             
 <li >
-    <a href="../concepts/">Concepts</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../patterns/">Patterns</a>
+    <a href="../rest/">API Rest</a>
 </li>
 
                         
@@ -95,18 +89,6 @@
                             
 <li >
     <a href="../elixir/">Elixir</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../javascript/">Javascript</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../ruby/">Ruby</a>
 </li>
 
                         
@@ -137,7 +119,7 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../patterns/">
+                        <a rel="next" href="../rest/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
@@ -158,7 +140,10 @@
         <div class="col-md-3"><div class="bs-sidebar hidden-print affix well" role="complementary">
     <ul class="nav bs-sidenav">
     
-        <li class="first-level active"><a href="#exemples-python">Exemples Python</a></li>
+        <li class="first-level active"><a href="#librairie-python">Librairie Python</a></li>
+        
+            <li class="second-level"><a href="#ouvrir-une-base-de-donnee">Ouvrir une base de donnée</a></li>
+            
         
             <li class="second-level"><a href="#lire-un-document">Lire un document</a></li>
             
@@ -166,7 +151,10 @@
             <li class="second-level"><a href="#creer-un-document">Créer un document</a></li>
             
         
-            <li class="second-level"><a href="#mettre-a-jour-un-document">Mettre à jour un document</a></li>
+            <li class="second-level"><a href="#mettre-a-jour-un-document-existant">Mettre à jour un document existant</a></li>
+            
+        
+            <li class="second-level"><a href="#supprimer-un-document">Supprimer un document</a></li>
             
         
             <li class="second-level"><a href="#ecouter-les-evenements-de-mises-a-jour">Ecouter les évenements de mises à jour</a></li>
@@ -177,20 +165,68 @@
 </div></div>
         <div class="col-md-9" role="main">
 
-<h1 id="exemples-python">Exemples Python</h1>
+<h1 id="librairie-python">Librairie Python</h1>
+<p>Vous pouvez utiliser la librairie <a href="../../git/?p=barrel-aof17.git/.git;a=blob;f=clients/python/barrel.py"><code>barrel.py</code></a> pour acceder facilement
+à une base Barrel.</p>
+<p>N'oubliez pas d'installer les dependances nécessaire:</p>
+<pre><code>$ pip install requests
+$ pip install sseclient
+</code></pre>
+<h2 id="ouvrir-une-base-de-donnee">Ouvrir une base de donnée</h2>
+<pre><code class="python">from barrel import Database
+
+database_url = &quot;http://192.168.1.89:8080/source&quot;
+database = Database(database_url)
+</code></pre>
+
+<p>L'objet <code>database</code> ainsi créé peut etre utilisé pour toutes
+les opérations sur barrel.</p>
 <h2 id="lire-un-document">Lire un document</h2>
 <p>Lire la dernière version d'un document:</p>
-<pre><code class="python">import requests
+<pre><code class="python">from barrel import Database
 
-r = requests.get('http://localhost:8080/store/docid')
-print r.status_code
+database = Database(database_url)
+doc = database.get(docid)
 </code></pre>
 
 <h2 id="creer-un-document">Créer un document</h2>
-<p>Créer un document et laisser le serveur assigner un id:</p>
-<p>Créer un document ayant un id donné</p>
-<h2 id="mettre-a-jour-un-document">Mettre à jour un document</h2>
-<h2 id="ecouter-les-evenements-de-mises-a-jour">Ecouter les évenements de mises à jour</h2></div>
+<p>Utilisez la méthode <code>put</code> pour créer ou mettre à jour un document.
+N'oubliez pas de bien renseigner le champ <code>id</code> obligatoire:</p>
+<pre><code class="python">database = Database(database_url)
+doc = {'id': 'chat', 'message': 'hello world'}
+database.put(doc)
+</code></pre>
+
+<p>Vous pouvez utiliser <code>post</code> si vous souhaitez laisser le serveur
+assigner lui-même un <code>id</code> unique:</p>
+<pre><code class="python">database = Database(database_url)
+doc = {'message': 'hello world'}
+database.post(doc)
+</code></pre>
+
+<h2 id="mettre-a-jour-un-document-existant">Mettre à jour un document existant</h2>
+<p>Un simple appel à la methode <code>put</code> permet de mettre à jour un doc existant.
+Prenez bien soin de vérifier que le champ <code>_rev</code> correspond bien à la dernière
+révision du document.</p>
+<pre><code class="python">database = Database(database_url)
+doc = database.get('chat')
+doc['message'] = 'hello world'
+database.put(doc)
+</code></pre>
+
+<h2 id="supprimer-un-document">Supprimer un document</h2>
+<pre><code class="python">database = Database(database_url)
+doc = database.get('chat')
+database.delete(doc)
+</code></pre>
+
+<h2 id="ecouter-les-evenements-de-mises-a-jour">Ecouter les évenements de mises à jour</h2>
+<p>La méthode <code>changes(regex)</code> retourne un stream des documents qui ont été modifiés, dont le <code>docid</code>
+match la regexp en parametre.</p>
+<pre><code class="python">database = Database(database_url)
+for doc in database.changes('^chat'):
+    print(doc['message'])
+</code></pre></div>
         
     </div>
 

@@ -76,13 +76,7 @@
                         
                             
 <li >
-    <a href="../concepts/">Concepts</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../patterns/">Patterns</a>
+    <a href="../rest/">API Rest</a>
 </li>
 
                         
@@ -95,18 +89,6 @@
                             
 <li >
     <a href="../elixir/">Elixir</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../javascript/">Javascript</a>
-</li>
-
-                        
-                            
-<li >
-    <a href="../ruby/">Ruby</a>
 </li>
 
                         
@@ -137,7 +119,7 @@
                 </li>
                 
                     <li >
-                        <a rel="next" href="../ruby/">
+                        <a rel="next" href="../elixir/">
                             <i class="fa fa-arrow-left"></i> Previous
                         </a>
                     </li>
@@ -160,6 +142,15 @@
     
         <li class="first-level active"><a href="#administration-de-barrel">Administration de Barrel</a></li>
         
+            <li class="second-level"><a href="#installation-du-service-systemd">Installation du service systemd</a></li>
+            
+        
+            <li class="second-level"><a href="#connection-du-serveur-au-wifi">Connection du serveur au wifi</a></li>
+            
+        
+            <li class="second-level"><a href="#scan-de-lip-du-serveur-barrel">Scan de l'IP du serveur barrel</a></li>
+            
+        
     
     </ul>
 </div></div>
@@ -169,7 +160,37 @@
 <p>Cette page présente quelques commandes de base pour administrée
 la base de données en cas de problèmes.</p>
 <p>Ces commandes nécessite un accès SSH au serveur. Demandez à Bernard
-qu'il vous communique ces accès si vous pensez que vous en avez besoin.</p></div>
+qu'il vous communique ces accès si vous pensez que vous en avez besoin.</p>
+<p>Démarrer le service:</p>
+<pre><code>$ sudo systemctl start barrel.service
+</code></pre>
+<p>Consulter le log du service:</p>
+<pre><code>$ journalctl -u barrel.service
+</code></pre>
+<p>Status du service:</p>
+<pre><code>$ systemctl status barrel.service
+</code></pre>
+<h2 id="installation-du-service-systemd">Installation du service systemd</h2>
+<pre><code>$ cd /etc/systemd/system
+$ sudo cp /home/bernard/barrel/barrel-aof17/admin/barrel.service
+$ sudo systemctl enable barrel.service
+$ sudo systemctl start barrel.service
+$ systemctl status barrel.service
+</code></pre>
+<h2 id="connection-du-serveur-au-wifi">Connection du serveur au wifi</h2>
+<p>Source: https://doc.ubuntu-fr.org/wifi</p>
+<p>Lister les périphériques réseaux supportant le Wifi:</p>
+<pre><code>$ iw dev
+</code></pre>
+<p>Démarrer le reseau sur <code>wlp2s0</code></p>
+<pre><code>$ sudo ifconfig wlp2s0 up
+</code></pre>
+<p>Lister les réseaux visibles sur l'interface <code>wlp2s0</code>:</p>
+<pre><code>$ sudo iw dev wlp2s0 scan | grep SSID
+</code></pre>
+<h2 id="scan-de-lip-du-serveur-barrel">Scan de l'IP du serveur barrel</h2>
+<pre><code>$ sudo nmap -sS -p 22 192.168.1.0/24 | grep barrel
+</code></pre></div>
         
     </div>
 
