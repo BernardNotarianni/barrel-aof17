@@ -80,5 +80,154 @@ Pour mettre à jour un document:
 4 - Si vous avez un code erreur 409, reprendre à l'épate 1
 ```
 
-## Ecouter les évenements de mises à jour
+# API REST
 
+## Header HTTP
+
+Pour toute les requêtes HTTP, inclure dans le header `Content-Type: application/json`
+
+Il n'y pas de filtre d'autorisation: tout le monde a accès à tout sur l'API HTTP Rest de ce serveur.
+
+## `GET /<store>/<docid>`
+
+Request:
+```json
+GET /source/chat
+```
+
+Reply:
+```json
+{
+  "_rev": "1-435823fe88aa55869cba856df1a2d570",
+  "id": "chat",
+  "name": "tom"
+}
+```
+
+## `POST /<store>`
+
+Request:
+```json
+POST /source
+{
+  "name": "tom"
+}
+```
+
+Reply:
+```json
+{
+  "id": "98d5b5c8-af18-453a-bfb9-b0c6ca0da19b",
+  "ok": true,
+  "rev": "1-ddffb068a15dda0cf75c2e9223e375fa"
+}
+```
+
+## `PUT /<store>/<docid>`
+
+### Création d'un document
+
+Il faut indiquer le même *docid* dans l'URL de la requete et dans le champ `id` du document JSON.
+
+```json
+PUT /source/chat
+{
+  "id": "chat",
+  "name": "tom"
+}
+```
+
+Reply:
+```json
+{
+  "id": "chat",
+  "ok": true,
+  "rev": "1-435823fe88aa55869cba856df1a2d570"
+}
+```
+
+### Mise à jour d'un document existant
+
+Pour mettre à jour un document, il faut indiquer précisement le dernière révision dans le champ `_rev`.
+
+```json
+PUT /source/chat
+{
+  "_rev": "1-435823fe88aa55869cba856df1a2d570",
+  "id": "chat",
+  "name": "Grumpy Cat"
+}
+```
+
+Reply:
+```json
+{
+  "id": "chat",
+  "ok": true,
+  "rev": "2-8cfbb3023f94ddd1f1bf6ee7a9ba2019"
+}
+```
+
+## `DELETE /<store>/<docid>`
+
+Pour supprimer un document, indiquer dans le parametre d'URL `rev` la dernière révision.
+
+```text
+DELETE /source/chat?rev=2-8cfbb3023f94ddd1f1bf6ee7a9ba2019
+```
+
+Reply:
+```json
+{
+  "id": "chat",
+  "ok": true,
+  "rev": "3-8a17b246465973518019470d6b4540fd"
+}
+```
+
+## `GET /<store>/_all_docs`
+
+Liste tous les documents disponibles dans un store:
+
+```text
+GET /source/_all_docs
+```
+
+Reply:
+```json
+{
+  "offset": 0,
+  "rows": [
+    {
+      "id": "chat",
+      "rev": "3-8a17b246465973518019470d6b4540fd"
+    },
+    {
+      "id": "98d5b5c8-af18-453a-bfb9-b0c6ca0da19b",
+      "rev": "1-ddffb068a15dda0cf75c2e9223e375fa"
+    }
+  ],
+  "total_rows": 2
+}
+```
+
+## `GET /<store>/_changes?feed=eventsource`
+
+Informe de toutes les modifications de doducment d'un store sous la forme de
+[Server Sent Events](https://www.w3.org/TR/eventsource/) HTTP.
+
+```text
+GET /source/_all_docs
+```
+
+Reply:
+```json
+id: 546386C4D14C0
+data: {"last_seq":7,"results":[]}
+
+id: 546386CDC2CE0
+data: {"last_seq":8,"results":[{"changes":["1-6a5f1ebdc7e3b20430b8b834dd505e32"],"id":"51b38616-b2fe-4772-9dbe-6c06575961d7","seq":8}]}
+
+id: 546386D507634
+data: {"last_seq":9,"results":[{"changes":["1-88ba268c6c1ba33270411ac6666a7fe1"],"id":"2285c50e-c30a-4aeb-ace8-10c5befb09bc","seq":9}]}
+```

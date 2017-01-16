@@ -43,4 +43,7 @@ Lister les réseaux visibles sur l'interface `wlp2s0`:
 
     $ sudo iw dev wlp2s0 scan | grep SSID
 
+## Scan de l'IP du serveur barrel
+   
+    $ sudo nmap -sS -p 22 192.168.1.0/24 | grep barrel
 
