@@ -1,1 +1,0 @@
-# Modèles de programmation avec Barrel

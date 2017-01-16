@@ -3,11 +3,8 @@ theme_dir: cinder
 pages:
     - Home: index.md
     - Barrel:
-        - 'Concepts': barrel/concepts.md
-        - 'Patterns': barrel/patterns.md
+        - 'API Rest': barrel/rest.md
         - 'Python': barrel/python.md
         - 'Elixir': barrel/elixir.md
-        - 'Javascript': barrel/javascript.md
-        - 'Ruby': barrel/ruby.md
         - 'Admin': barrel/admin.md
     - A propos: apropos.md

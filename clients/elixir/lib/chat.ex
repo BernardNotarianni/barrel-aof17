@@ -8,8 +8,8 @@ defmodule Barrex.Chat do
     Barrex.Database.get(@docid, db)
   end
 
-  def sender do
-     db = Barrex.Database.open(@database_url)
+  def sender(url \\ @database_url) do
+     db = Barrex.Database.open(url)
      read_send(db)
   end
 
@@ -21,8 +21,8 @@ defmodule Barrex.Chat do
     read_send(db)
   end
 
-  def receiver do
-    db = Barrex.Database.open(@database_url)
+  def receiver(url \\ @database_url) do
+    db = Barrex.Database.open(url)
     Barrex.Database.changes(db)
       |> Stream.map(fn doc -> IO.puts doc["message"] end)
       |> Stream.run
